@@ -1,105 +1,244 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
+<html lang="vi"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VINHHSK — Cổng học tập &amp; công cụ</title>
-<meta name="description" content="Trang cổng vinhhsk.io.vn: toàn bộ khóa học tiếng Trung HSK, tiếng Anh B2–C1 và các công cụ làm việc của vinhnd2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0e2a4e; --bg2:#123a6b; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7d;
-    --gold:#c9a227; --gold-soft:#f4e9c8; --line:#e3e9f0;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:#f2f5f9;color:var(--ink)}
-  .search{max-width:1080px;margin:0 auto;padding:22px 16px 0}
-  .search input{width:100%;padding:13px 18px;border-radius:999px;border:2px solid var(--line);font-size:16px;outline:none;background:#fff}
-  .search input:focus{border-color:var(--gold)}
-  main{max-width:1080px;margin:0 auto;padding:22px 16px 50px}
-  section{margin-bottom:34px}
-  h2{font-size:21px;margin:0 0 4px;color:var(--bg);display:flex;align-items:center;gap:9px}
-  h2::after{content:"";flex:1;height:2px;background:var(--gold-soft);border-radius:2px}
-  .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
-  a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 13px;text-decoration:none;color:var(--ink);transition:.15s}
-  a.card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 20px rgba(14,42,78,.12)}
-  .card .ic{font-size:26px}
-  .card .t{font-weight:700;font-size:16.5px;margin:8px 0 3px}
-  .card .d{color:var(--muted);font-size:13.5px;line-height:1.45}
-  .card .go{color:var(--gold);font-weight:700;font-size:13px;margin-top:9px}
-  .hidden{display:none!important}
-  footer{text-align:center;color:var(--muted);font-size:13.5px;padding:0 16px 34px}
-  footer b{color:var(--bg)}
+:root{--ink:#16222e;--muted:#5f7080;--gold:#c9a227;--navy:#0e2a4e;--line:#e7edf2;--bg:#fbfcfd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Be Vietnam Pro","Segoe UI",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+/* ===== Header ===== */
+header.site{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff}
+header.site.solid{position:sticky;background:var(--navy);box-shadow:0 2px 14px rgba(10,25,45,.25)}
+.nav{display:flex;align-items:center;gap:26px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.28)}
+header.site.solid .nav{border-bottom:none}
+.logo{font-family:"Playfair Display",Georgia,serif;font-size:24px;font-weight:800;letter-spacing:2.5px;color:#fff}
+.logo span{color:var(--gold)}
+nav.main{display:flex;gap:24px;margin-left:auto;align-items:center}
+nav.main>a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
+nav.main>a:hover{color:var(--gold)}
+.has-drop{position:relative}
+.drop-btn{background:var(--gold);color:#16222e;border:none;font:inherit;font-weight:700;font-size:14.5px;padding:10px 18px;border-radius:999px;cursor:pointer}
+.drop-btn:hover{background:#dcbc45}
+.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(880px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 14px;display:none}
+.drop.open{display:block}
+.drop .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 26px}
+.drop h4{margin:0 0 9px;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid #f0e3bb;padding-bottom:6px}
+.drop ul{list-style:none;margin:0 0 14px;padding:0}
+.drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
+.drop li a:hover{background:#f4f7fa;color:var(--navy);font-weight:600}
+.drop .all{display:block;text-align:center;border-top:1px solid var(--line);padding:11px 0 5px;font-weight:700;color:var(--navy);font-size:14.5px}
+.burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
+/* ===== Hero ===== */
+.hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#0a1c33}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,38,.34) 0%,rgba(8,20,38,.05) 40%,rgba(8,20,38,.72) 100%)}
+.hero .inner{position:relative;padding:150px 0 34px}
+.eyebrow{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.hero h1{font-size:clamp(38px,5.6vw,66px);line-height:1.12;margin:14px 0 16px;max-width:760px;font-weight:700}
+.hero p{max-width:620px;font-size:17px;line-height:1.65;color:#eef3f8;margin:0 0 26px}
+.btn{display:inline-block;background:#fff;color:#14202e;font-weight:700;padding:13px 26px;border-radius:4px;font-size:15px}
+.btn:hover{background:var(--gold)}
+.hero .stats{position:relative;border-top:1px solid rgba(255,255,255,.35);margin-top:44px}
+.hero .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:20px;padding-bottom:26px}
+.hero .stat b{font-family:"Playfair Display",Georgia,serif;font-size:21px;display:block;margin-bottom:4px}
+.hero .stat b i{font-style:normal;color:var(--gold);margin-right:9px}
+.hero .stat span{font-size:13.5px;color:#dbe5ee;line-height:1.5;display:block}
+/* ===== Sections ===== */
+section.blk{padding:74px 0 10px}
+.sec-head{text-align:center;margin-bottom:36px}
+.sec-head h2{font-size:clamp(29px,3.6vw,40px);margin:8px 0 6px;color:#14202e}
+.sec-head p{color:var(--muted);margin:0;font-size:15.5px}
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dest{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4.1;display:block}
+.dest img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dest:hover img{transform:scale(1.05)}
+.dest .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(180deg,transparent,rgba(6,17,30,.82));color:#fff}
+.dest .cap h3{margin:0 0 3px;font-size:21px}
+.dest .cap span{font-size:13px;color:#d7e2ec}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.post{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+.post:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(14,42,78,.13)}
+.post .ph{aspect-ratio:16/10;overflow:hidden}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.post:hover .ph img{transform:scale(1.05)}
+.post .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.chip{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8a6d14;background:#f7ecc9;padding:4px 10px;border-radius:999px}
+.post h3{margin:2px 0 0;font-size:20.5px;line-height:1.32;color:#14202e}
+.post .meta{font-size:12.5px;color:#8b99a7;letter-spacing:.6px;text-transform:uppercase}
+.post p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6;flex:1}
+.post .more{font-weight:700;color:var(--navy);font-size:14.5px}
+.post .more:hover{color:var(--gold)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center;padding:30px 0 20px}
+.about img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.about h2{font-size:clamp(26px,3.2vw,36px);margin:8px 0 12px}
+.about p{color:var(--muted);line-height:1.7;font-size:15.5px;margin:0 0 12px}
+/* ===== Destination pages ===== */
+.page-hero{position:relative;color:#fff}
+.page-hero .bg{width:100%;height:52vh;min-height:340px;object-fit:cover}
+.page-hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,38,.18),rgba(8,20,38,.72))}
+.page-hero .inner{position:absolute;left:0;right:0;bottom:26px}
+.page-hero h1{font-size:clamp(30px,4.4vw,50px);margin:8px 0 6px;line-height:1.15}
+.page-hero .meta{color:#dbe5ee;font-size:14px;letter-spacing:.5px}
+.article{max-width:820px;margin:0 auto;padding:44px 20px 6px}
+.article p{font-size:16.5px;line-height:1.8;color:#33475a;margin:0 0 16px}
+.gallery{max-width:1180px;margin:16px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery a{border-radius:12px;overflow:hidden;display:block}
+.gallery img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .45s}
+.gallery a:hover img{transform:scale(1.05)}
+.backline{max-width:1180px;margin:0 auto;padding:30px 20px 6px}
+.backline a{font-weight:700;color:var(--navy)}
+.backline a:hover{color:var(--gold)}
+/* ===== Footer ===== */
+footer.site{margin-top:70px;background:var(--navy);color:#c9d6e2}
+footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
+footer.site .logo{font-size:22px}
+footer.site nav{display:flex;gap:22px;justify-content:center;margin:14px 0 10px;flex-wrap:wrap}
+footer.site nav a{color:#c9d6e2;font-size:14px}
+footer.site nav a:hover{color:var(--gold)}
+footer.site p{margin:4px 0;font-size:13.5px;color:#8fa5ba}
+@media(max-width:900px){
+ .dest-grid{grid-template-columns:repeat(2,1fr)}
+ .post-grid{grid-template-columns:repeat(2,1fr)}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .about{grid-template-columns:1fr}
+ .drop .cols{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+ nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px}
+ nav.main.open{display:flex}
+ nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.12)}
+ .has-drop{position:static}
+ .drop-btn{width:100%;margin-top:10px}
+ .drop{position:static;width:100%;margin-top:10px;box-shadow:none;max-height:46vh;overflow:auto}
+ .burger{display:block}
+ .logo{margin-right:0}
+ .post-grid{grid-template-columns:1fr}
+ .hero .stats .wrap{grid-template-columns:1fr;gap:12px}
+ .hero{min-height:88vh}
+}
 </style>
-</head>
-<body>
-<div class="search"><input id="q" type="search" placeholder="🔍 Tìm nhanh… ví dụ: HSK3, tape, so sánh, vé" autocomplete="off"></div>
-<main>
-
-  <section data-group>
-    <h2>🇨🇳 Tiếng Trung — HSK &amp; giáo trình</h2>
-    <p class="sub">Mỗi khóa học theo ngày (Day), 5 từ mới/ngày, có flashcard và bài tập nghe — đọc — ngữ pháp.</p>
-    <div class="grid">
-      <a class="card" href="https://vinhhsk.io.vn/HSK1/"><div class="ic">📗</div><div class="t">HSK 1</div><div class="d">36 ngày · 178 từ — cấp độ mở đầu</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/HSK2/"><div class="ic">📗</div><div class="t">HSK 2</div><div class="d">43 ngày · 213 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/HSK3/"><div class="ic">📗</div><div class="t">HSK 3</div><div class="d">40 ngày · 197 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/HSK4/"><div class="ic">📗</div><div class="t">HSK 4</div><div class="d">39 ngày · 192 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/TrungCap1/"><div class="ic">📘</div><div class="t">Trung cấp 1</div><div class="d">54 ngày · 266 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/TrungCap2/"><div class="ic">📘</div><div class="t">Trung cấp 2</div><div class="d">71 ngày · 355 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/TrungCap3/"><div class="ic">📘</div><div class="t">Trung cấp 3</div><div class="d">48 ngày · 236 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/TrungCap4/"><div class="ic">📘</div><div class="t">Trung cấp 4</div><div class="d">42 ngày · 206 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/CaoCap1/"><div class="ic">📕</div><div class="t">Cao cấp 1</div><div class="d">90 ngày · 447 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/CaoCap2/"><div class="ic">📕</div><div class="t">Cao cấp 2</div><div class="d">81 ngày · 405 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/CaoCap3/"><div class="ic">📕</div><div class="t">Cao cấp 3</div><div class="d">71 ngày · 353 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/CaoCap4/"><div class="ic">📕</div><div class="t">Cao cấp 4</div><div class="d">72 ngày · 357 từ</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/BoThu/"><div class="ic">🈳</div><div class="t">214 Bộ Thủ</div><div class="d">22 ngày theo thứ tự Khang Hy + tra cứu &amp; phiếu viết tay</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Song/"><div class="ic">🎵</div><div class="t">Học qua bài hát</div><div class="d">Học tiếng Trung qua các bài hát Hoa ngữ có phụ đề chữ Hán</div><div class="go">▶ Học ngay</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Tool/Writing.html"><div class="ic">✍️</div><div class="t">Hán Văn Studio</div><div class="d">Sổ tay viết tiếng Trung thông minh</div><div class="go">▶ Mở công cụ</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Tool/Reader.html"><div class="ic">📖</div><div class="t">Smart Reader</div><div class="d">Công cụ đọc tiếng Trung tối giản</div><div class="go">▶ Mở công cụ</div></a>
+<title>VINHHSK — Blog du lịch &amp; góc học tập</title>
+<meta name="description" content="Blog du lịch vinhhsk.io.vn: nhật ký hành trình qua 8 điểm đến — Cao Bằng, Đà Nẵng – Hội An, Huế, Y Tý, Tà Xùa, Nha Trang, Đà Lạt và Thạch Gia Trang — cùng góc học tập tiếng Trung, tiếng Anh.">
+<meta property="og:title" content="VINHHSK — Blog du lịch">
+<meta property="og:image" content="https://vinhhsk.io.vn/images/hero.jpg">
+</head><body>
+<header class="site">
+ <div class="wrap"><div class="nav">
+  <a class="logo" href="index.html">VINH<span>HSK</span></a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <nav class="main" id="mainnav">
+   <a href="index.html">Trang chủ</a>
+   <a href="index.html#diem-den">Điểm đến</a>
+   <a href="index.html#bai-viet">Bài viết</a>
+   <a href="index.html#gioi-thieu">Giới thiệu</a>
+   <div class="has-drop">
+    <button class="drop-btn" id="dropbtn">📚 Học tập &amp; Công cụ ▾</button>
+    <div class="drop" id="drop">
+     <div class="cols"><div><h4>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li><li><a href="https://vinhhsk.io.vn/Tool/Writing.html">Hán Văn Studio</a></li><li><a href="https://vinhhsk.io.vn/Tool/Reader.html">Smart Reader</a></li></ul></div><div><h4>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div><div><h4>Công cụ</h4><ul><li><a href="https://vinhhsk.io.vn/Tool/Tinh-Chieu-Dai-Day-Xoan-Quan-Tape.html">Tính dây xoắn &amp; quấn tape</a></li><li><a href="https://vinhhsk.io.vn/Tool/So-Sanh-Excel.html">So Sánh Dữ Liệu</a></li><li><a href="https://vinhhsk.io.vn/Tool/Dan-Trang-Ve.html">Dàn Trang Vé</a></li><li><a href="https://vinhhsk.io.vn/Tool/Anh_the.html">Ảnh Thẻ — ID Photo</a></li></ul></div><div><h4>Sổ tay</h4><ul><li><a href="https://vinhhsk.io.vn/MsHue/">Sổ tay du lịch Trung Quốc</a></li></ul></div></div>
+     <a class="all" href="hoc-tap.html">Mở trang học tập đầy đủ →</a>
     </div>
-  </section>
+   </div>
+  </nav>
+ </div></div>
+</header>
+<div class="hero">
+ <img class="bg" src="images/hero.jpg" alt="Lặn tự do giữa đàn cá ở Nha Trang">
+ <div class="shade"></div>
+ <div class="inner wrap">
+  <div class="eyebrow">Blog du lịch — Nhật ký hành trình</div>
+  <h1>Khám phá thế giới qua từng khung hình</h1>
+  <p>Những chuyến đi từ 2020 đến nay: biển mây Tây Bắc, phố cổ miền Trung, làn nước xanh Nha Trang và cả Thạch Gia Trang xa xôi ở phương Bắc — kể lại bằng hình ảnh.</p>
+  <a class="btn" href="#diem-den">Xem các điểm đến</a>
+ </div>
+ <div class="stats"><div class="wrap">
+  <div class="stat"><b><i>01</i>8 điểm đến</b><span>Từ biên viễn Đông Bắc đến miền Trung nắng gió, và một chuyến đi xa tới Hà Bắc, Trung Quốc.</span></div>
+  <div class="stat"><b><i>02</i>45 bức ảnh</b><span>Ảnh gốc chọn lọc từ các chuyến đi, sắp xếp theo từng vùng đất để kể thành câu chuyện.</span></div>
+  <div class="stat"><b><i>03</i>2020 — 2026</b><span>Sáu năm của những chuyến đi — và hành trình vẫn đang tiếp tục.</span></div>
+ </div></div>
+</div>
 
-  <section data-group>
-    <h2>🇬🇧 Tiếng Anh</h2>
-    <p class="sub">First Certificate (B2) và Advanced (C1) — mỗi bài 3 bản Việt / Nhật / Anh, tra từ IPA offline.</p>
-    <div class="grid">
-      <a class="card" href="https://vinhhsk.io.vn/ENGLISH/"><div class="ic">🎓</div><div class="t">ENGLISH — B2 + C1</div><div class="d">B2: 56 unit · C1: 50 unit (Grammar &amp; Vocabulary)</div><div class="go">▶ Học ngay</div></a>
-    </div>
-  </section>
+<section class="blk" id="diem-den"><div class="wrap">
+ <div class="sec-head"><div class="eyebrow">Đi đâu</div><h2>Điểm đến nổi bật</h2><p>Bốn vùng đất để lại nhiều khung hình nhất</p></div>
+ <div class="dest-grid"><a class="dest" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy">
+        <div class="cap"><h3>Nha Trang</h3><span>📍 Khánh Hòa</span></div></a><a class="dest" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy">
+        <div class="cap"><h3>Cao Bằng</h3><span>📍 Cao Bằng</span></div></a><a class="dest" href="ta-xua.html"><img src="images/ta-xua/cover.jpg" alt="Tà Xùa" loading="lazy">
+        <div class="cap"><h3>Tà Xùa</h3><span>📍 Sơn La</span></div></a><a class="dest" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy">
+        <div class="cap"><h3>Đà Nẵng – Hội An</h3><span>📍 Đà Nẵng — Quảng Nam</span></div></a></div>
+</div></section>
 
-  <section data-group>
-    <h2>🛠️ Công cụ công việc</h2>
-    <p class="sub">Các công cụ tính toán và xử lý dữ liệu dùng trong công việc hằng ngày.</p>
-    <div class="grid">
-      <a class="card" href="https://vinhhsk.io.vn/Tool/Tinh-Chieu-Dai-Day-Xoan-Quan-Tape.html"><div class="ic">🧵</div><div class="t">Tính dây xoắn &amp; quấn tape</div><div class="d">Chiều dài dây xoắn, quấn tape, tra cứu AWG, mã màu dây, so sánh dữ liệu</div><div class="go">▶ Mở công cụ</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Tool/So-Sanh-Excel.html"><div class="ic">🔍</div><div class="t">So Sánh Dữ Liệu</div><div class="d">Bản độc lập — đối chiếu 2 vùng dữ liệu OLD / NEW</div><div class="go">▶ Mở công cụ</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Tool/Dan-Trang-Ve.html"><div class="ic">🎫</div><div class="t">Dàn Trang Vé</div><div class="d">In vé &amp; thẻ nhân viên CR80</div><div class="go">▶ Mở công cụ</div></a>
-      <a class="card" href="https://vinhhsk.io.vn/Tool/Anh_the.html"><div class="ic">🪪</div><div class="t">Ảnh Thẻ — ID Photo Studio</div><div class="d">Chỉnh kích thước, DPI &amp; màu sắc ảnh thẻ</div><div class="go">▶ Mở công cụ</div></a>
-    </div>
-  </section>
+<section class="blk" id="bai-viet"><div class="wrap">
+ <div class="sec-head"><div class="eyebrow">Nhật ký hành trình</div><h2>Bài viết &amp; album ảnh</h2><p>Mỗi điểm đến là một bài viết — bấm vào để xem trọn album</p></div>
+ <div class="post-grid"><article class="post"><a class="ph" href="shijiazhuang.html"><img src="images/shijiazhuang/cover.jpg" alt="Thạch Gia Trang" loading="lazy"></a>
+        <div class="bd"><span class="chip">Trung Quốc</span>
+        <h3><a href="shijiazhuang.html">Thạch Gia Trang — thành phố trong sương sớm</a></h3>
+        <div class="meta">Tháng 5 · 2026 · 6 ảnh</div>
+        <p>Thủ phủ của Hà Bắc hiện ra sau lớp sương mỏng: những tòa tháp kính san sát, đại lộ thênh thang và một buổi sáng yên tĩnh đến lạ giữa lòng thành phố phương Bắc.</p>
+        <a class="more" href="shijiazhuang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy"></a>
+        <div class="bd"><span class="chip">Đông Bắc</span>
+        <h3><a href="cao-bang.html">Cao Bằng — non nước miền biên viễn</a></h3>
+        <div class="meta">Tháng 11 · 2025 · 1 ảnh</div>
+        <p>Một khung hình toàn cảnh gói trọn Cao Bằng: dòng sông uốn lượn giữa thung lũng xanh, núi đá vôi trùng điệp nối nhau đến tận đường chân trời nơi biên viễn.</p>
+        <a class="more" href="cao-bang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy"></a>
+        <div class="bd"><span class="chip">Miền Trung</span>
+        <h3><a href="da-nang-hoi-an.html">Đà Nẵng – Hội An — từ nhà thờ hồng đến phố đèn lồng</a></h3>
+        <div class="meta">Tháng 1 · 2025 · 13 ảnh</div>
+        <p>Một chuyến đi, hai sắc thái: Đà Nẵng trẻ trung với nhà thờ hồng rực giữa lòng phố, và Hội An trầm mặc trong ánh đèn lồng bên dòng sông Hoài.</p>
+        <a class="more" href="da-nang-hoi-an.html">Xem album →</a></div></article><article class="post"><a class="ph" href="hue.html"><img src="images/hue/cover.jpg" alt="Huế" loading="lazy"></a>
+        <div class="bd"><span class="chip">Miền Trung</span>
+        <h3><a href="hue.html">Huế — sắc màu làng hương</a></h3>
+        <div class="meta">Tháng 1 · 2025 · 5 ảnh</div>
+        <p>Những bó hương đủ sắc đỏ, tím, vàng xòe như hoa trong làn khói mỏng — góc ảnh níu chân bất cứ ai ghé thăm làng hương dưới chân đồi Vọng Cảnh.</p>
+        <a class="more" href="hue.html">Xem album →</a></div></article><article class="post"><a class="ph" href="y-ty.html"><img src="images/y-ty/cover.jpg" alt="Y Tý" loading="lazy"></a>
+        <div class="bd"><span class="chip">Tây Bắc</span>
+        <h3><a href="y-ty.html">Y Tý — bậc thang chạm mây</a></h3>
+        <div class="meta">Tháng 10 · 2024 · 4 ảnh</div>
+        <p>Ruộng bậc thang uốn lượn theo sườn núi, mây trôi ngang tầm mắt — Y Tý mùa thu hiện ra như một bức tranh thủy mặc giữa đại ngàn Lào Cai.</p>
+        <a class="more" href="y-ty.html">Xem album →</a></div></article><article class="post"><a class="ph" href="ta-xua.html"><img src="images/ta-xua/cover.jpg" alt="Tà Xùa" loading="lazy"></a>
+        <div class="bd"><span class="chip">Tây Bắc</span>
+        <h3><a href="ta-xua.html">Tà Xùa — bình minh trên biển mây</a></h3>
+        <div class="meta">Năm 2023 · 4 ảnh</div>
+        <p>Thức dậy khi trời còn tối, leo lên đỉnh gió và chờ mặt trời nhuộm vàng cả biển mây — Tà Xùa chưa bao giờ làm những kẻ săn mây phải thất vọng.</p>
+        <a class="more" href="ta-xua.html">Xem album →</a></div></article><article class="post"><a class="ph" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy"></a>
+        <div class="bd"><span class="chip">Biển</span>
+        <h3><a href="nha-trang.html">Nha Trang — lặn giữa đàn cá</a></h3>
+        <div class="meta">Tháng 11 · 2020 · 9 ảnh</div>
+        <p>Làn nước trong xanh của vịnh Nha Trang, một hơi thở sâu và cả đàn cá vây quanh — khoảnh khắc dưới mặt biển đẹp đến quên cả thời gian.</p>
+        <a class="more" href="nha-trang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-lat.html"><img src="images/da-lat/cover.jpg" alt="Đà Lạt" loading="lazy"></a>
+        <div class="bd"><span class="chip">Cao nguyên</span>
+        <h3><a href="da-lat.html">Đà Lạt — bình minh trên đồi cỏ hồng</a></h3>
+        <div class="meta">Tháng 1 · 2020 · 3 ảnh</div>
+        <p>Khi sương còn phủ kín thung lũng, đồi cỏ hồng bừng lên trong nắng sớm — Đà Lạt dịu dàng và mộng mơ đúng như lời đồn.</p>
+        <a class="more" href="da-lat.html">Xem album →</a></div></article></div>
+</div></section>
 
-  <section data-group>
-    <h2>🧳 Sổ tay</h2>
-    <p class="sub">Sổ tay mang theo khi đi Trung Quốc.</p>
-    <div class="grid">
-      <a class="card" href="https://vinhhsk.io.vn/MsHue/"><div class="ic">🧳</div><div class="t">Sổ tay du lịch Trung Quốc</div><div class="d">Bộ tài liệu &amp; câu giao tiếp tiếng Trung cho chuyến đi</div><div class="go">▶ Xem sổ tay</div></a>
-    </div>
-  </section>
-
-</main>
-<footer><b>vinhhsk.io.vn</b></footer>
+<section class="blk" id="gioi-thieu"><div class="wrap">
+ <div class="about">
+  <img src="images/y-ty/cover.jpg" alt="Ruộng bậc thang Y Tý" loading="lazy">
+  <div>
+   <div class="eyebrow">Giới thiệu</div>
+   <h2>Một góc nhỏ lưu giữ những chuyến đi</h2>
+   <p>Trang blog này là nơi gom lại ảnh và câu chuyện của những chuyến đi — có chuyến lên núi săn mây, có chuyến xuống biển lặn giữa đàn cá, có chuyến chỉ đơn giản là lang thang phố cổ một buổi chiều.</p>
+   <p>Bên cạnh blog, đây cũng là cổng vào góc học tập tiếng Trung — tiếng Anh và các công cụ làm việc: tất cả nằm gọn trong nút <b>📚 Học tập &amp; Công cụ</b> ở menu đầu trang.</p>
+  </div>
+ </div>
+</div></section>
+<footer class="site"><div class="wrap">
+ <a class="logo" href="index.html">VINH<span>HSK</span></a>
+ <nav><a href="index.html">Trang chủ</a><a href="index.html#diem-den">Điểm đến</a><a href="index.html#bai-viet">Bài viết</a><a href="hoc-tap.html">Học tập &amp; Công cụ</a></nav>
+ <p>Blog du lịch &amp; góc học tập — ghi lại những chuyến đi, từng khung hình một.</p>
+ <p><b style="color:#fff">vinhhsk.io.vn</b></p>
+</div></footer>
 <script>
-  var q = document.getElementById('q');
-  q.addEventListener('input', function(){
-    var s = q.value.trim().toLowerCase();
-    document.querySelectorAll('a.card').forEach(function(c){
-      c.classList.toggle('hidden', s && c.textContent.toLowerCase().indexOf(s) === -1);
-    });
-    document.querySelectorAll('[data-group]').forEach(function(g){
-      var any = g.querySelectorAll('a.card:not(.hidden)').length > 0;
-      g.classList.toggle('hidden', !any);
-    });
-  });
+var b=document.getElementById('burger'),n=document.getElementById('mainnav');
+b.addEventListener('click',function(){n.classList.toggle('open')});
+var db=document.getElementById('dropbtn'),d=document.getElementById('drop');
+db.addEventListener('click',function(e){e.stopPropagation();d.classList.toggle('open')});
+document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open')});
 </script>
-</body>
-</html>
+</body></html>
