@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#16222e;--muted:#4d5f6f;--gold:#c9a227;--navy:#0e2a4e;--line:#e7edf2;--bg:#fbfcfd}
 *{box-sizing:border-box}
@@ -18,30 +18,32 @@ header.site{position:sticky;top:0;left:0;right:0;z-index:50;color:#fff;backgroun
 .nav{display:flex;align-items:center;gap:26px;padding:11px 0}
 .logo{display:flex;align-items:center;gap:11px}
 .logoimg{width:47px;height:47px;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.35)}
-.brandname{font-family:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;font-size:16px;font-weight:800;letter-spacing:1.6px;color:#fff}
+.brandname{font-family:"Noto Serif SC","Playfair Display",serif;font-size:17.5px;font-weight:900;letter-spacing:1px;color:#fff}
 nav.main{display:flex;gap:24px;margin-left:auto;align-items:center}
 nav.main>a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
 nav.main>a:hover{color:var(--gold)}
 .has-drop{position:relative}
 .drop-btn{background:none;border:none;color:#fff;font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
 .drop-btn:hover{color:var(--gold)}
-.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:linear-gradient(180deg,#ffffff,#f7fafc);color:var(--ink);border-radius:16px;border-top:3px solid var(--gold);box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 12px;display:none;overflow:hidden}
-.drop.open{display:block}
+.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:linear-gradient(180deg,#ffffff,#f7fafc);color:var(--ink);border-radius:16px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 12px;display:none;overflow:hidden}
+.drop.open{display:block;animation:dropIn .38s ease}
+@keyframes dropIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (min-width:641px){
+ .has-drop:hover .drop{display:block;animation:dropIn .38s ease}
+}
 .drop .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:8px 26px;position:relative;z-index:1}
 .drop h4{margin:0 0 9px;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid #f0e3bb;padding-bottom:7px;display:flex;align-items:center;gap:8px}
 .drop .badge{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border-radius:7px;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:none}
 .drop ul{list-style:none;margin:0 0 14px;padding:0}
-.drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49;border-left:3px solid transparent}
-.drop li a:hover{background:#eef3f8;color:var(--navy);font-weight:600;border-left-color:var(--gold)}
-.drop .wm{position:absolute;right:-26px;bottom:-26px;width:150px;height:150px;opacity:.10;pointer-events:none;z-index:0}
-.drop .orn{position:relative;z-index:1;height:12px;margin:2px 0 4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='118' height='12' viewBox='0 0 118 12'%3E%3Cpath d='M2 6 H44' stroke='%23c9a227' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M59 1.5 L63.5 6 L59 10.5 L54.5 6 Z' fill='%23c9a227'/%3E%3Cpath d='M74 6 H116' stroke='%23c9a227' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
+.drop li a:hover{background:#eef3f8;color:var(--navy);font-weight:600}
 .drop .all{display:block;text-align:center;border-top:1px solid var(--line);padding:11px 0 5px;font-weight:700;color:var(--navy);font-size:14.5px}
 .burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
 /* ===== Hero ===== */
 .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#0a1c33}
 .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,38,.34) 0%,rgba(8,20,38,.05) 40%,rgba(8,20,38,.72) 100%)}
-.hero .inner{position:relative;padding:84px 0 34px}
+.hero .inner{position:relative;padding-top:84px;padding-bottom:34px}
 .eyebrow{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold)}
 .hero .eyebrow{color:#0e2a4e}
 .hero h1{font-size:clamp(38px,5.6vw,66px);line-height:1.12;margin:14px 0 16px;max-width:760px;font-weight:700}
@@ -109,6 +111,16 @@ section.blk{padding:74px 0 10px}
 .lb button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);width:44px;height:44px;border-radius:50%;font-size:19px;cursor:pointer;line-height:1}
 .lb button:hover{background:var(--gold);color:#16222e}
 .lb .x{position:absolute;top:16px;right:16px}
+/* ===== Hieu ung cuon trang ===== */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:none}
+.lb img.anim{animation:lbIn .38s ease}
+@keyframes lbIn{from{opacity:.25;transform:scale(.965)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){
+ .rv{opacity:1;transform:none;transition:none}
+ .lb img.anim{animation:none}
+ .drop.open{animation:none}
+}
 /* ===== Footer ===== */
 footer.site{margin-top:70px;background:#edf1f4;color:#41586d;border-top:1px solid var(--line)}
 footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
@@ -157,7 +169,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .dest-grid{gap:10px}
  .dest .cap h3{font-size:16.5px}
  .dest .cap{padding:30px 12px 12px}
- .gallery{gap:8px;padding:0 12px}
+ .gallery{gap:8px;padding:0 16px}
  .logoimg{width:40px;height:40px}
  .page-hero .bg{height:38vh;min-height:240px}
  .sec-head{margin-bottom:26px}
@@ -184,8 +196,6 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
     <button class="drop-btn" id="dropbtn">Học tập ▾</button>
     <div class="drop" id="drop">
      <div class="cols"><div><h4><span class="badge">中</span>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li></ul></div><div><h4><span class="badge">EN</span>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div></div>
-     <div class="orn"></div>
-     <img class="wm" src="images/logo.png" alt="">
     </div>
    </div>
   </nav>
@@ -283,5 +293,13 @@ b.addEventListener('click',function(){n.classList.toggle('open')});
 var db=document.getElementById('dropbtn'),d=document.getElementById('drop');
 db.addEventListener('click',function(e){e.stopPropagation();d.classList.toggle('open')});
 document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open')});
+var rvEls=document.querySelectorAll('.dest,.post,.sec-head,.about>*,.gallery a,.article p');
+if('IntersectionObserver' in window){
+ rvEls.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=((i%3)*0.07)+'s'});
+ var io=new IntersectionObserver(function(es){es.forEach(function(en){
+   if(en.isIntersecting){en.target.classList.add('vis')}else{en.target.classList.remove('vis')}
+ })},{threshold:0.1});
+ rvEls.forEach(function(el){io.observe(el)});
+}
 </script>
 </body></html>
