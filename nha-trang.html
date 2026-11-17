@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#16222e;--muted:#5f7080;--gold:#c9a227;--navy:#0e2a4e;--line:#e7edf2;--bg:#fbfcfd}
+:root{--ink:#16222e;--muted:#4d5f6f;--gold:#c9a227;--navy:#0e2a4e;--line:#e7edf2;--bg:#fbfcfd}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:"Be Vietnam Pro","Segoe UI",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
@@ -13,21 +14,21 @@ a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 /* ===== Header ===== */
-header.site{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff}
+header.site{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;background:linear-gradient(180deg,rgba(8,20,38,.42),rgba(8,20,38,0) 90%)}
 header.site.solid{position:sticky;background:var(--navy);box-shadow:0 2px 14px rgba(10,25,45,.25)}
 .nav{display:flex;align-items:center;gap:26px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.28)}
 header.site.solid .nav{border-bottom:none}
-.logo{font-family:"Playfair Display",Georgia,serif;font-size:24px;font-weight:800;letter-spacing:2.5px;color:#fff}
-.logo span{color:var(--gold)}
+.logo{display:flex;align-items:center}
+.logoimg{width:47px;height:47px;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.28)}
 nav.main{display:flex;gap:24px;margin-left:auto;align-items:center}
 nav.main>a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
 nav.main>a:hover{color:var(--gold)}
 .has-drop{position:relative}
-.drop-btn{background:var(--gold);color:#16222e;border:none;font:inherit;font-weight:700;font-size:14.5px;padding:10px 18px;border-radius:999px;cursor:pointer}
-.drop-btn:hover{background:#dcbc45}
-.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(880px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 14px;display:none}
+.drop-btn{background:none;border:none;color:#fff;font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
+.drop-btn:hover{color:var(--gold)}
+.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 10px;display:none}
 .drop.open{display:block}
-.drop .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 26px}
+.drop .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:8px 26px}
 .drop h4{margin:0 0 9px;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid #f0e3bb;padding-bottom:6px}
 .drop ul{list-style:none;margin:0 0 14px;padding:0}
 .drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
@@ -70,7 +71,7 @@ section.blk{padding:74px 0 10px}
 .post .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .chip{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8a6d14;background:#f7ecc9;padding:4px 10px;border-radius:999px}
 .post h3{margin:2px 0 0;font-size:20.5px;line-height:1.32;color:#14202e}
-.post .meta{font-size:12.5px;color:#8b99a7;letter-spacing:.6px;text-transform:uppercase}
+.post .meta{font-size:12.5px;color:#66788a;letter-spacing:.6px;text-transform:uppercase}
 .post p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6;flex:1}
 .post .more{font-weight:700;color:var(--navy);font-size:14.5px}
 .post .more:hover{color:var(--gold)}
@@ -94,33 +95,53 @@ section.blk{padding:74px 0 10px}
 .backline{max-width:1180px;margin:0 auto;padding:30px 20px 6px}
 .backline a{font-weight:700;color:var(--navy)}
 .backline a:hover{color:var(--gold)}
+/* ===== Lightbox ===== */
+.lb{position:fixed;inset:0;background:rgba(5,12,22,.94);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb.open{display:flex}
+.lb img{max-width:94vw;max-height:84vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb .bar{display:flex;align-items:center;gap:18px;margin-top:14px;color:#dbe5ee;font-size:14.5px}
+.lb button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);width:44px;height:44px;border-radius:50%;font-size:19px;cursor:pointer;line-height:1}
+.lb button:hover{background:var(--gold);color:#16222e}
+.lb .x{position:absolute;top:16px;right:16px}
 /* ===== Footer ===== */
 footer.site{margin-top:70px;background:var(--navy);color:#c9d6e2}
 footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
-footer.site .logo{font-size:22px}
+footer.site .logo{justify-content:center}
+footer.site .logoimg{width:62px;height:62px}
 footer.site nav{display:flex;gap:22px;justify-content:center;margin:14px 0 10px;flex-wrap:wrap}
 footer.site nav a{color:#c9d6e2;font-size:14px}
 footer.site nav a:hover{color:var(--gold)}
-footer.site p{margin:4px 0;font-size:13.5px;color:#8fa5ba}
+footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
 @media(max-width:900px){
  .dest-grid{grid-template-columns:repeat(2,1fr)}
  .post-grid{grid-template-columns:repeat(2,1fr)}
  .gallery{grid-template-columns:repeat(2,1fr)}
  .about{grid-template-columns:1fr}
- .drop .cols{grid-template-columns:repeat(2,1fr)}
+ .drop .cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px}
  nav.main.open{display:flex}
  nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.12)}
  .has-drop{position:static}
- .drop-btn{width:100%;margin-top:10px}
+ .drop-btn{width:100%;margin-top:10px;text-align:left}
  .drop{position:static;width:100%;margin-top:10px;box-shadow:none;max-height:46vh;overflow:auto}
  .burger{display:block}
  .logo{margin-right:0}
  .post-grid{grid-template-columns:1fr}
  .hero .stats .wrap{grid-template-columns:1fr;gap:12px}
  .hero{min-height:88vh}
+ .hero .inner{padding-top:104px}
+ .dest-grid{gap:10px}
+ .dest .cap h3{font-size:16.5px}
+ .dest .cap{padding:30px 12px 12px}
+ .gallery{gap:8px;padding:0 12px}
+ .logoimg{width:40px;height:40px}
+ .page-hero .bg{height:38vh;min-height:240px}
+ .sec-head{margin-bottom:26px}
+ section.blk{padding:48px 0 6px}
+ .article{padding:32px 16px 4px}
+ .lb button{width:48px;height:48px}
 }
 </style>
 <title>Nha Trang — lặn giữa đàn cá — VINHHSK</title>
@@ -130,7 +151,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#8fa5ba}
 </head><body>
 <header class="site solid">
  <div class="wrap"><div class="nav">
-  <a class="logo" href="index.html">VINH<span>HSK</span></a>
+  <a class="logo" href="index.html"><img class="logoimg" src="images/logo.png" alt="VINHHSK"></a>
   <button class="burger" id="burger" aria-label="Menu">☰</button>
   <nav class="main" id="mainnav">
    <a href="index.html">Trang chủ</a>
@@ -138,10 +159,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#8fa5ba}
    <a href="index.html#bai-viet">Bài viết</a>
    <a href="index.html#gioi-thieu">Giới thiệu</a>
    <div class="has-drop">
-    <button class="drop-btn" id="dropbtn">📚 Học tập &amp; Công cụ ▾</button>
+    <button class="drop-btn" id="dropbtn">Học tập &amp; Công cụ ▾</button>
     <div class="drop" id="drop">
-     <div class="cols"><div><h4>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li><li><a href="https://vinhhsk.io.vn/Tool/Writing.html">Hán Văn Studio</a></li><li><a href="https://vinhhsk.io.vn/Tool/Reader.html">Smart Reader</a></li></ul></div><div><h4>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div><div><h4>Công cụ</h4><ul><li><a href="https://vinhhsk.io.vn/Tool/Tinh-Chieu-Dai-Day-Xoan-Quan-Tape.html">Tính dây xoắn &amp; quấn tape</a></li><li><a href="https://vinhhsk.io.vn/Tool/So-Sanh-Excel.html">So Sánh Dữ Liệu</a></li><li><a href="https://vinhhsk.io.vn/Tool/Dan-Trang-Ve.html">Dàn Trang Vé</a></li><li><a href="https://vinhhsk.io.vn/Tool/Anh_the.html">Ảnh Thẻ — ID Photo</a></li></ul></div><div><h4>Sổ tay</h4><ul><li><a href="https://vinhhsk.io.vn/MsHue/">Sổ tay du lịch Trung Quốc</a></li></ul></div></div>
-     <a class="all" href="hoc-tap.html">Mở trang học tập đầy đủ →</a>
+     <div class="cols"><div><h4>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li></ul></div><div><h4>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div></div>
     </div>
    </div>
   </nav>
@@ -157,11 +177,11 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#8fa5ba}
  </div>
 </div>
 <div class="article"><p>Bức ảnh bìa của cả trang blog này được chụp tại Nha Trang: một người lặn tự do lướt đi giữa đàn cá lấp lánh dưới làn nước xanh ngọc. Đó là khoảnh khắc khiến chuyến đi biển năm 2020 trở nên không thể quên.</p><p>Chín khung hình trong album đưa người xem xuống dưới mặt nước — nơi ánh nắng xuyên qua sóng, san hô và những đàn cá tạo nên một thế giới yên bình khác hẳn mặt biển ồn ào phía trên.</p></div>
-<div class="gallery"><a href="images/nha-trang/01.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/01.jpg" alt="Nha Trang — ảnh 1" loading="lazy"></a><a href="images/nha-trang/02.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/02.jpg" alt="Nha Trang — ảnh 2" loading="lazy"></a><a href="images/nha-trang/03.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/03.jpg" alt="Nha Trang — ảnh 3" loading="lazy"></a><a href="images/nha-trang/04.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/04.jpg" alt="Nha Trang — ảnh 4" loading="lazy"></a><a href="images/nha-trang/05.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/05.jpg" alt="Nha Trang — ảnh 5" loading="lazy"></a><a href="images/nha-trang/06.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/06.jpg" alt="Nha Trang — ảnh 6" loading="lazy"></a><a href="images/nha-trang/07.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/07.jpg" alt="Nha Trang — ảnh 7" loading="lazy"></a><a href="images/nha-trang/08.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/08.jpg" alt="Nha Trang — ảnh 8" loading="lazy"></a><a href="images/nha-trang/09.jpg" target="_blank" rel="noopener"><img src="images/nha-trang/09.jpg" alt="Nha Trang — ảnh 9" loading="lazy"></a></div>
+<div class="gallery"><a href="images/nha-trang/01.jpg"><img src="images/nha-trang/01.jpg" alt="Nha Trang — ảnh 1" loading="lazy"></a><a href="images/nha-trang/02.jpg"><img src="images/nha-trang/02.jpg" alt="Nha Trang — ảnh 2" loading="lazy"></a><a href="images/nha-trang/03.jpg"><img src="images/nha-trang/03.jpg" alt="Nha Trang — ảnh 3" loading="lazy"></a><a href="images/nha-trang/04.jpg"><img src="images/nha-trang/04.jpg" alt="Nha Trang — ảnh 4" loading="lazy"></a><a href="images/nha-trang/05.jpg"><img src="images/nha-trang/05.jpg" alt="Nha Trang — ảnh 5" loading="lazy"></a><a href="images/nha-trang/06.jpg"><img src="images/nha-trang/06.jpg" alt="Nha Trang — ảnh 6" loading="lazy"></a><a href="images/nha-trang/07.jpg"><img src="images/nha-trang/07.jpg" alt="Nha Trang — ảnh 7" loading="lazy"></a><a href="images/nha-trang/08.jpg"><img src="images/nha-trang/08.jpg" alt="Nha Trang — ảnh 8" loading="lazy"></a><a href="images/nha-trang/09.jpg"><img src="images/nha-trang/09.jpg" alt="Nha Trang — ảnh 9" loading="lazy"></a></div>
 <div class="backline"><a href="index.html#bai-viet">← Quay lại danh sách bài viết</a></div>
 <footer class="site"><div class="wrap">
- <a class="logo" href="index.html">VINH<span>HSK</span></a>
- <nav><a href="index.html">Trang chủ</a><a href="index.html#diem-den">Điểm đến</a><a href="index.html#bai-viet">Bài viết</a><a href="hoc-tap.html">Học tập &amp; Công cụ</a></nav>
+ <a class="logo" href="index.html"><img class="logoimg" src="images/logo.png" alt="VINHHSK"></a>
+ <nav><a href="index.html">Trang chủ</a><a href="index.html#diem-den">Điểm đến</a><a href="index.html#bai-viet">Bài viết</a></nav>
  <p>Blog du lịch &amp; góc học tập — ghi lại những chuyến đi, từng khung hình một.</p>
  <p><b style="color:#fff">vinhhsk.io.vn</b></p>
 </div></footer>
@@ -171,5 +191,25 @@ b.addEventListener('click',function(){n.classList.toggle('open')});
 var db=document.getElementById('dropbtn'),d=document.getElementById('drop');
 db.addEventListener('click',function(e){e.stopPropagation();d.classList.toggle('open')});
 document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open')});
+</script>
+<div class="lb" id="lb">
+ <button class="x" id="lbx" aria-label="Đóng">✕</button>
+ <img id="lbimg" src="" alt="Ảnh phóng to">
+ <div class="bar"><button id="lbprev" aria-label="Ảnh trước">‹</button><span id="lbcount"></span><button id="lbnext" aria-label="Ảnh sau">›</button></div>
+</div>
+<script>
+var items=[].slice.call(document.querySelectorAll('.gallery a')),cur=0;
+var lb=document.getElementById('lb'),limg=document.getElementById('lbimg'),lc=document.getElementById('lbcount');
+function show(i){cur=(i+items.length)%items.length;limg.src=items[cur].getAttribute('href');lc.textContent=(cur+1)+' / '+items.length}
+items.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();lb.classList.add('open');show(i);document.body.style.overflow='hidden'})});
+function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lbx').addEventListener('click',closeLb);
+document.getElementById('lbprev').addEventListener('click',function(e){e.stopPropagation();show(cur-1)});
+document.getElementById('lbnext').addEventListener('click',function(e){e.stopPropagation();show(cur+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+var tx=null;
+lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>42)show(cur+(dx<0?1:-1));tx=null},{passive:true});
 </script>
 </body></html>
