@@ -178,6 +178,17 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .lb button{width:48px;height:48px}
 }
 </style>
+<style>
+.greet{position:fixed;top:84px;right:18px;z-index:90;display:flex;gap:9px;align-items:flex-start;max-width:min(320px,86vw);opacity:0;transform:translateY(-8px) scale(.97);pointer-events:none;transition:opacity .45s ease,transform .45s ease}
+.greet.show{opacity:1;transform:none;pointer-events:auto}
+.greet .av{width:38px;height:38px;border-radius:50%;box-shadow:0 4px 14px rgba(10,25,45,.35);flex:none;background:#fff}
+.greet .bub{position:relative;background:#fff;color:#22303d;border-radius:4px 16px 16px 16px;box-shadow:0 14px 34px rgba(10,25,45,.28);padding:11px 30px 11px 14px;font-size:13.5px;line-height:1.55}
+.greet .bub b{display:block;color:#0e2a4e;font-size:12px;letter-spacing:.6px;margin-bottom:2px}
+.greet .bub::before{content:"";position:absolute;left:-6px;top:12px;border:6px solid transparent;border-right-color:#fff;border-left:0}
+.greet .gx{position:absolute;top:5px;right:8px;background:none;border:none;color:#8fa1b3;font-size:15px;cursor:pointer;line-height:1;padding:2px}
+.greet .gx:hover{color:#0e2a4e}
+@media(max-width:640px){.greet{top:76px;right:12px}}
+</style>
 <title>Vinhhsk</title>
 <meta name="description" content="Blog du lịch vinhhsk.io.vn: nhật ký hành trình qua 8 điểm đến — Cao Bằng, Đà Nẵng – Hội An, Huế, Y Tý, Tà Xùa, Nha Trang, Đà Lạt và Thạch Gia Trang — cùng góc học tập tiếng Trung, tiếng Anh.">
 <meta property="og:title" content="VINHHSK — Blog du lịch">
@@ -201,6 +212,10 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
   </nav>
  </div></div>
 </header>
+<div class="greet" id="greet">
+ <img class="av" src="images/logo.png" alt="VinhHSK">
+ <div class="bub"><b>VinhHSK</b><span id="greetText"></span><button class="gx" id="greetX" aria-label="Đóng">✕</button></div>
+</div>
 <div class="hero">
  <img class="bg" src="images/hero.jpg" alt="Nước biển Nha Trang trong veo bên những tảng đá">
  <div class="shade"></div>
@@ -301,5 +316,19 @@ if('IntersectionObserver' in window){
  })},{threshold:0.1});
  rvEls.forEach(function(el){io.observe(el)});
 }
+</script>
+<script>
+(function(){
+ var h=new Date().getHours(),t;
+ if(h>=5&&h<11)t='Chào buổi sáng! Chúc bạn một ngày mới tốt lành, đầy năng lượng ☀️';
+ else if(h>=11&&h<13)t='Chào buổi trưa! Nghỉ ngơi một chút, ghé xem vài khung hình đẹp nhé.';
+ else if(h>=13&&h<18)t='Chào buổi chiều! Mời bạn dạo một vòng qua những chuyến đi đã qua.';
+ else if(h>=18&&h<23)t='Chào buổi tối! Thong thả xem lại những khung hình đẹp trong ngày nhé.';
+ else t='Khuya rồi đó 🌙 Xem nốt vài tấm rồi đi ngủ sớm nhé — mai còn nhiều điều hay đang chờ!';
+ var g=document.getElementById('greet');
+ document.getElementById('greetText').textContent=t;
+ try{if(!sessionStorage.getItem('greetClosed')){setTimeout(function(){g.classList.add('show')},700)}}catch(e){setTimeout(function(){g.classList.add('show')},700)}
+ document.getElementById('greetX').addEventListener('click',function(){g.classList.remove('show');try{sessionStorage.setItem('greetClosed','1')}catch(e){}});
+})();
 </script>
 </body></html>
