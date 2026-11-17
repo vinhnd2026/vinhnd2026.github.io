@@ -25,13 +25,16 @@ nav.main>a:hover{color:var(--gold)}
 .has-drop{position:relative}
 .drop-btn{background:none;border:none;color:#fff;font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
 .drop-btn:hover{color:var(--gold)}
-.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 10px;display:none}
+.drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:linear-gradient(180deg,#ffffff,#f7fafc);color:var(--ink);border-radius:16px;border-top:3px solid var(--gold);box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 12px;display:none;overflow:hidden}
 .drop.open{display:block}
-.drop .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:8px 26px}
-.drop h4{margin:0 0 9px;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid #f0e3bb;padding-bottom:6px}
+.drop .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:8px 26px;position:relative;z-index:1}
+.drop h4{margin:0 0 9px;font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy);border-bottom:2px solid #f0e3bb;padding-bottom:7px;display:flex;align-items:center;gap:8px}
+.drop .badge{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 5px;border-radius:7px;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:none}
 .drop ul{list-style:none;margin:0 0 14px;padding:0}
-.drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
-.drop li a:hover{background:#f4f7fa;color:var(--navy);font-weight:600}
+.drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49;border-left:3px solid transparent}
+.drop li a:hover{background:#eef3f8;color:var(--navy);font-weight:600;border-left-color:var(--gold)}
+.drop .wm{position:absolute;right:-26px;bottom:-26px;width:150px;height:150px;opacity:.10;pointer-events:none;z-index:0}
+.drop .orn{position:relative;z-index:1;height:12px;margin:2px 0 4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='118' height='12' viewBox='0 0 118 12'%3E%3Cpath d='M2 6 H44' stroke='%23c9a227' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M59 1.5 L63.5 6 L59 10.5 L54.5 6 Z' fill='%23c9a227'/%3E%3Cpath d='M74 6 H116' stroke='%23c9a227' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .drop .all{display:block;text-align:center;border-top:1px solid var(--line);padding:11px 0 5px;font-weight:700;color:var(--navy);font-size:14.5px}
 .burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
 /* ===== Hero ===== */
@@ -123,6 +126,22 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .drop .cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
+ html,body{overflow-x:clip}
+ .wrap{padding:0 16px}
+ .brandname{font-size:15px;letter-spacing:1.2px}
+ .hero .eyebrow{font-size:11px;letter-spacing:2px}
+ .hero h1{font-size:31px;line-height:1.18}
+ .hero p{font-size:15px;line-height:1.55;margin-bottom:18px}
+ .btn{padding:12px 22px;font-size:14.5px}
+ .hero .stats{margin-top:26px}
+ .hero .stats .wrap{gap:9px;padding-top:14px;padding-bottom:16px}
+ .hero .stat b{font-size:17.5px;margin-bottom:1px}
+ .hero .stat span{font-size:12.5px;line-height:1.45}
+ .sec-head h2{font-size:26px}
+ .post .bd{padding:15px 16px 17px}
+ .post h3{font-size:19px}
+ .page-hero h1{font-size:26px}
+ .article p{font-size:15.5px;line-height:1.75}
  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(14,42,78,.30)}
  nav.main.open{display:flex}
  nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
@@ -132,9 +151,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .burger{display:block}
  .logo{margin-right:0}
  .post-grid{grid-template-columns:1fr}
- .hero .stats .wrap{grid-template-columns:1fr;gap:12px}
- .hero{min-height:88vh}
- .hero .inner{padding-top:104px}
+ .hero .stats .wrap{grid-template-columns:1fr}
+ .hero{min-height:0}
+ .hero .inner{padding-top:52px}
  .dest-grid{gap:10px}
  .dest .cap h3{font-size:16.5px}
  .dest .cap{padding:30px 12px 12px}
@@ -164,7 +183,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
    <div class="has-drop">
     <button class="drop-btn" id="dropbtn">Học tập ▾</button>
     <div class="drop" id="drop">
-     <div class="cols"><div><h4>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li></ul></div><div><h4>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div></div>
+     <div class="cols"><div><h4><span class="badge">中</span>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li></ul></div><div><h4><span class="badge">EN</span>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div></div>
+     <div class="orn"></div>
+     <img class="wm" src="images/logo.png" alt="">
     </div>
    </div>
   </nav>
@@ -188,10 +209,10 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
 
 <section class="blk" id="diem-den"><div class="wrap">
  <div class="sec-head"><div class="eyebrow">Đi đâu</div><h2>Điểm đến nổi bật</h2><p>Bốn vùng đất để lại nhiều khung hình nhất</p></div>
- <div class="dest-grid"><a class="dest" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy">
-        <div class="cap"><h3>Nha Trang</h3><span>📍 Khánh Hòa</span></div></a><a class="dest" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy">
+ <div class="dest-grid"><a class="dest" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy" style="object-position:50% 75%">
+        <div class="cap"><h3>Nha Trang</h3><span>📍 Khánh Hòa</span></div></a><a class="dest" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy" style="object-position:50% 40%">
         <div class="cap"><h3>Cao Bằng</h3><span>📍 Cao Bằng</span></div></a><a class="dest" href="ta-xua.html"><img src="images/ta-xua/cover.jpg" alt="Tà Xùa" loading="lazy" style="object-position:50% 100%">
-        <div class="cap"><h3>Tà Xùa</h3><span>📍 Sơn La</span></div></a><a class="dest" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy">
+        <div class="cap"><h3>Tà Xùa</h3><span>📍 Sơn La</span></div></a><a class="dest" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy" style="object-position:50% 80%">
         <div class="cap"><h3>Đà Nẵng – Hội An</h3><span>📍 Đà Nẵng — Quảng Nam</span></div></a></div>
 </div></section>
 
@@ -202,12 +223,12 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
         <h3><a href="shijiazhuang.html">Thạch Gia Trang — lạc vào cổ trấn Chính Định</a></h3>
         <div class="meta">Tháng 5 · 2026 · 6 ảnh</div>
         <p>Phố cổ Chính Định lên đèn rực rỡ, tường thành trầm mặc, tháp chùa in bóng cuối con đường — một Hà Bắc rất xưa, nằm yên trong lòng thành phố trẻ Thạch Gia Trang.</p>
-        <a class="more" href="shijiazhuang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy"></a>
+        <a class="more" href="shijiazhuang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="cao-bang.html"><img src="images/cao-bang/cover.jpg" alt="Cao Bằng" loading="lazy" style="object-position:50% 40%"></a>
         <div class="bd"><span class="chip">Đông Bắc</span>
         <h3><a href="cao-bang.html">Cao Bằng — xóm nhỏ lưng chừng núi</a></h3>
         <div class="meta">Tháng 11 · 2025 · 1 ảnh</div>
         <p>Vài mái nhà đỏ nép mình giữa lưng chừng núi, nương ruộng bậc thang trải dài phía trước — Cao Bằng bình yên trong một khung hình nhìn từ trên cao.</p>
-        <a class="more" href="cao-bang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy"></a>
+        <a class="more" href="cao-bang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-nang-hoi-an.html"><img src="images/da-nang-hoi-an/cover.jpg" alt="Đà Nẵng – Hội An" loading="lazy" style="object-position:50% 80%"></a>
         <div class="bd"><span class="chip">Miền Trung</span>
         <h3><a href="da-nang-hoi-an.html">Đà Nẵng – Hội An — cầu Rồng phun lửa, phố cổ lên đèn</a></h3>
         <div class="meta">Tháng 1 · 2025 · 13 ảnh</div>
@@ -217,7 +238,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
         <h3><a href="hue.html">Huế — một vòng cố đô</a></h3>
         <div class="meta">Tháng 1 · 2025 · 5 ảnh</div>
         <p>Từ Ngọ Môn uy nghi, thuyền rồng trên sông Hương, cầu Tràng Tiền đến dãy nhà đỏ của trường Quốc Học và ga Huế cổ kính — cố đô hiện ra trầm mặc mà gần gũi.</p>
-        <a class="more" href="hue.html">Xem album →</a></div></article><article class="post"><a class="ph" href="y-ty.html"><img src="images/y-ty/cover.jpg" alt="Y Tý" loading="lazy"></a>
+        <a class="more" href="hue.html">Xem album →</a></div></article><article class="post"><a class="ph" href="y-ty.html"><img src="images/y-ty/cover.jpg" alt="Y Tý" loading="lazy" style="object-position:50% 60%"></a>
         <div class="bd"><span class="chip">Tây Bắc</span>
         <h3><a href="y-ty.html">Y Tý — bếp lửa và những con đường bản</a></h3>
         <div class="meta">Tháng 10 · 2024 · 4 ảnh</div>
@@ -227,12 +248,12 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
         <h3><a href="ta-xua.html">Tà Xùa — bình minh trên biển mây</a></h3>
         <div class="meta">Năm 2023 · 4 ảnh</div>
         <p>Thức dậy khi trời còn tối, leo lên đỉnh gió và chờ mặt trời nhuộm vàng cả biển mây — Tà Xùa chưa bao giờ làm những kẻ săn mây phải thất vọng.</p>
-        <a class="more" href="ta-xua.html">Xem album →</a></div></article><article class="post"><a class="ph" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy"></a>
+        <a class="more" href="ta-xua.html">Xem album →</a></div></article><article class="post"><a class="ph" href="nha-trang.html"><img src="images/nha-trang/cover.jpg" alt="Nha Trang" loading="lazy" style="object-position:50% 75%"></a>
         <div class="bd"><span class="chip">Biển</span>
         <h3><a href="nha-trang.html">Nha Trang — làn nước trong veo</a></h3>
         <div class="meta">Tháng 11 · 2020 · 9 ảnh</div>
         <p>Nước trong đến nhìn rõ từng hòn đá dưới lớp cát, ghềnh đá xanh rì ôm vịnh biển, một con nhím biển giữa khe đá và cả trò nghịch bóng tay trên cát lúc nửa đêm — Nha Trang trong trẻo từ sáng tới khuya.</p>
-        <a class="more" href="nha-trang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-lat.html"><img src="images/da-lat/cover.jpg" alt="Đà Lạt" loading="lazy"></a>
+        <a class="more" href="nha-trang.html">Xem album →</a></div></article><article class="post"><a class="ph" href="da-lat.html"><img src="images/da-lat/cover.jpg" alt="Đà Lạt" loading="lazy" style="object-position:50% 90%"></a>
         <div class="bd"><span class="chip">Cao nguyên</span>
         <h3><a href="da-lat.html">Đà Lạt — hoa, thông và hoàng hôn trên mái nhà</a></h3>
         <div class="meta">Tháng 1 · 2020 · 3 ảnh</div>
@@ -242,7 +263,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
 
 <section class="blk cloudbg" id="gioi-thieu"><div class="wrap">
  <div class="about">
-  <img src="images/y-ty/cover.jpg" alt="Ruộng bậc thang Y Tý" loading="lazy">
+  <img src="images/y-ty/cover.jpg" alt="Núi non Y Tý" loading="lazy" style="object-position:50% 60%">
   <div>
    <div class="eyebrow">Giới thiệu</div>
    <h2>Một góc nhỏ lưu giữ những chuyến đi</h2>
