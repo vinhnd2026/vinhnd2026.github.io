@@ -14,17 +14,15 @@ a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 /* ===== Header ===== */
-header.site{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;background:linear-gradient(180deg,rgba(8,20,38,.42),rgba(8,20,38,0) 90%)}
-header.site.solid{position:sticky;background:var(--navy);box-shadow:0 2px 14px rgba(10,25,45,.25)}
-.nav{display:flex;align-items:center;gap:26px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.28)}
-header.site.solid .nav{border-bottom:none}
+header.site{position:sticky;top:0;left:0;right:0;z-index:50;color:var(--ink);background:#fff;box-shadow:0 1px 0 var(--line),0 8px 22px rgba(14,42,78,.07)}
+.nav{display:flex;align-items:center;gap:26px;padding:11px 0}
 .logo{display:flex;align-items:center}
 .logoimg{width:47px;height:47px;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.28)}
 nav.main{display:flex;gap:24px;margin-left:auto;align-items:center}
-nav.main>a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
+nav.main>a{color:var(--navy);font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
 nav.main>a:hover{color:var(--gold)}
 .has-drop{position:relative}
-.drop-btn{background:none;border:none;color:#fff;font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
+.drop-btn{background:none;border:none;color:var(--navy);font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
 .drop-btn:hover{color:var(--gold)}
 .drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 10px;display:none}
 .drop.open{display:block}
@@ -34,12 +32,12 @@ nav.main>a:hover{color:var(--gold)}
 .drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
 .drop li a:hover{background:#f4f7fa;color:var(--navy);font-weight:600}
 .drop .all{display:block;text-align:center;border-top:1px solid var(--line);padding:11px 0 5px;font-weight:700;color:var(--navy);font-size:14.5px}
-.burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
+.burger{display:none;background:none;border:none;color:var(--navy);font-size:26px;cursor:pointer;margin-left:auto}
 /* ===== Hero ===== */
 .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#0a1c33}
-.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
 .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,38,.34) 0%,rgba(8,20,38,.05) 40%,rgba(8,20,38,.72) 100%)}
-.hero .inner{position:relative;padding:150px 0 34px}
+.hero .inner{position:relative;padding:84px 0 34px}
 .eyebrow{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold)}
 .hero h1{font-size:clamp(38px,5.6vw,66px);line-height:1.12;margin:14px 0 16px;max-width:760px;font-weight:700}
 .hero p{max-width:620px;font-size:17px;line-height:1.65;color:#eef3f8;margin:0 0 26px}
@@ -104,14 +102,14 @@ section.blk{padding:74px 0 10px}
 .lb button:hover{background:var(--gold);color:#16222e}
 .lb .x{position:absolute;top:16px;right:16px}
 /* ===== Footer ===== */
-footer.site{margin-top:70px;background:var(--navy);color:#c9d6e2}
+footer.site{margin-top:70px;background:#edf1f4;color:#41586d;border-top:1px solid var(--line)}
 footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
 footer.site .logo{justify-content:center}
 footer.site .logoimg{width:62px;height:62px}
 footer.site nav{display:flex;gap:22px;justify-content:center;margin:14px 0 10px;flex-wrap:wrap}
-footer.site nav a{color:#c9d6e2;font-size:14px}
+footer.site nav a{color:var(--navy);font-size:14px;font-weight:600}
 footer.site nav a:hover{color:var(--gold)}
-footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
+footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
 @media(max-width:900px){
  .dest-grid{grid-template-columns:repeat(2,1fr)}
  .post-grid{grid-template-columns:repeat(2,1fr)}
@@ -120,9 +118,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
  .drop .cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
- nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px}
+ nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(14,42,78,.13)}
  nav.main.open{display:flex}
- nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.12)}
+ nav.main>a{padding:11px 2px;border-bottom:1px solid var(--line)}
  .has-drop{position:static}
  .drop-btn{width:100%;margin-top:10px;text-align:left}
  .drop{position:static;width:100%;margin-top:10px;box-shadow:none;max-height:46vh;overflow:auto}
@@ -144,9 +142,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
  .lb button{width:48px;height:48px}
 }
 </style>
-<title>Thạch Gia Trang — cầu đá nghìn năm và cổ trấn Chính Định — VINHHSK</title>
-<meta name="description" content="Không chỉ có những tòa tháp chìm trong sương sớm: quanh Thạch Gia Trang là cầu Triệu Châu hơn 1.400 năm tuổi và cổ trấn Chính Định với thành cổ, tháp cao và những rặng liễu soi bóng xuống dòng sông.">
-<meta property="og:title" content="Thạch Gia Trang — cầu đá nghìn năm và cổ trấn Chính Định">
+<title>Thạch Gia Trang — lạc vào cổ trấn Chính Định — VINHHSK</title>
+<meta name="description" content="Phố cổ Chính Định lên đèn rực rỡ, tường thành trầm mặc, tháp chùa in bóng cuối con đường — một Hà Bắc rất xưa, nằm yên trong lòng thành phố trẻ Thạch Gia Trang.">
+<meta property="og:title" content="Thạch Gia Trang — lạc vào cổ trấn Chính Định">
 <meta property="og:image" content="https://vinhhsk.io.vn/images/shijiazhuang/cover.jpg">
 </head><body>
 <header class="site solid">
@@ -159,7 +157,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
    <a href="index.html#bai-viet">Bài viết</a>
    <a href="index.html#gioi-thieu">Giới thiệu</a>
    <div class="has-drop">
-    <button class="drop-btn" id="dropbtn">Học tập &amp; Công cụ ▾</button>
+    <button class="drop-btn" id="dropbtn">Học tập ▾</button>
     <div class="drop" id="drop">
      <div class="cols"><div><h4>Tiếng Trung</h4><ul><li><a href="https://vinhhsk.io.vn/HSK1/">HSK 1</a></li><li><a href="https://vinhhsk.io.vn/HSK2/">HSK 2</a></li><li><a href="https://vinhhsk.io.vn/HSK3/">HSK 3</a></li><li><a href="https://vinhhsk.io.vn/HSK4/">HSK 4</a></li><li><a href="https://vinhhsk.io.vn/TrungCap1/">Trung cấp 1</a></li><li><a href="https://vinhhsk.io.vn/TrungCap2/">Trung cấp 2</a></li><li><a href="https://vinhhsk.io.vn/TrungCap3/">Trung cấp 3</a></li><li><a href="https://vinhhsk.io.vn/TrungCap4/">Trung cấp 4</a></li><li><a href="https://vinhhsk.io.vn/CaoCap1/">Cao cấp 1</a></li><li><a href="https://vinhhsk.io.vn/CaoCap2/">Cao cấp 2</a></li><li><a href="https://vinhhsk.io.vn/CaoCap3/">Cao cấp 3</a></li><li><a href="https://vinhhsk.io.vn/CaoCap4/">Cao cấp 4</a></li><li><a href="https://vinhhsk.io.vn/BoThu/">214 Bộ Thủ</a></li><li><a href="https://vinhhsk.io.vn/Song/">Học qua bài hát</a></li></ul></div><div><h4>Tiếng Anh</h4><ul><li><a href="https://vinhhsk.io.vn/ENGLISH/">ENGLISH — B2 + C1</a></li></ul></div></div>
     </div>
@@ -172,18 +170,17 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#aec2d6}
  <div class="shade"></div>
  <div class="inner wrap">
   <span class="chip">Trung Quốc</span>
-  <h1>Thạch Gia Trang — cầu đá nghìn năm và cổ trấn Chính Định</h1>
+  <h1>Thạch Gia Trang — lạc vào cổ trấn Chính Định</h1>
   <div class="meta">📍 Hà Bắc, Trung Quốc · Tháng 5 · 2026 · 6 ảnh</div>
  </div>
 </div>
-<div class="article"><p>Thạch Gia Trang không phải cái tên ồn ào trên bản đồ du lịch, nhưng chính sự bình thản ấy lại làm nên nét riêng: một thủ phủ hiện đại của tỉnh Hà Bắc, nơi những dãy nhà cao tầng chìm trong sương sớm và nhịp sống trôi chậm rãi, trật tự.</p><p>Điều bất ngờ nằm ở vùng ven: cầu Triệu Châu xây từ thời Tùy — cây cầu vòm đá hơn 1.400 năm tuổi vẫn đón người qua lại bên những rặng liễu xanh — và cổ trấn Chính Định với tường thành, tháp Lăng Tiêu cùng những con phố cổ trầm mặc. Một chuyến đi, hai nhịp thời gian.</p></div>
+<div class="article"><p>Điểm dừng chân đáng nhớ nhất của chuyến Hà Bắc không nằm ở trung tâm Thạch Gia Trang, mà ở Chính Định — cổ trấn hơn nghìn năm tuổi thuộc thành phố này, nơi bước chân vào phố cổ là như lùi về vài thế kỷ.</p><p>Sáu khung hình trong album: con phố cổ lúc lên đèn với những hàng quán rực rỡ, bức tường thành dài hun hút, bóng tháp chùa in ở cuối con đường rợp bóng cây, và cả một ô gạch nhỏ trên vỉa hè in chữ &quot;Chính Định&quot; cùng hình ngọn tháp — chi tiết nhỏ mà ai đi qua cũng phải cúi nhìn.</p></div>
 <div class="gallery"><a href="images/shijiazhuang/01.jpg"><img src="images/shijiazhuang/01.jpg" alt="Thạch Gia Trang — ảnh 1" loading="lazy"></a><a href="images/shijiazhuang/02.jpg"><img src="images/shijiazhuang/02.jpg" alt="Thạch Gia Trang — ảnh 2" loading="lazy"></a><a href="images/shijiazhuang/03.jpg"><img src="images/shijiazhuang/03.jpg" alt="Thạch Gia Trang — ảnh 3" loading="lazy"></a><a href="images/shijiazhuang/04.jpg"><img src="images/shijiazhuang/04.jpg" alt="Thạch Gia Trang — ảnh 4" loading="lazy"></a><a href="images/shijiazhuang/05.jpg"><img src="images/shijiazhuang/05.jpg" alt="Thạch Gia Trang — ảnh 5" loading="lazy"></a><a href="images/shijiazhuang/06.jpg"><img src="images/shijiazhuang/06.jpg" alt="Thạch Gia Trang — ảnh 6" loading="lazy"></a></div>
 <div class="backline"><a href="index.html#bai-viet">← Quay lại danh sách bài viết</a></div>
 <footer class="site"><div class="wrap">
  <a class="logo" href="index.html"><img class="logoimg" src="images/logo.png" alt="VINHHSK"></a>
  <nav><a href="index.html">Trang chủ</a><a href="index.html#diem-den">Điểm đến</a><a href="index.html#bai-viet">Bài viết</a></nav>
- <p>Blog du lịch &amp; góc học tập — ghi lại những chuyến đi, từng khung hình một.</p>
- <p><b style="color:#fff">vinhhsk.io.vn</b></p>
+ <p>Blog du lịch và góc học tập — ghi lại những chuyến đi, chia sẻ những khung hình.</p>
 </div></footer>
 <script>
 var b=document.getElementById('burger'),n=document.getElementById('mainnav');
