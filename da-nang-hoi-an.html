@@ -14,15 +14,16 @@ a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 /* ===== Header ===== */
-header.site{position:sticky;top:0;left:0;right:0;z-index:50;color:var(--ink);background:#fff;box-shadow:0 1px 0 var(--line),0 8px 22px rgba(14,42,78,.07)}
+header.site{position:sticky;top:0;left:0;right:0;z-index:50;color:#fff;background:var(--navy);box-shadow:0 2px 14px rgba(10,25,45,.30)}
 .nav{display:flex;align-items:center;gap:26px;padding:11px 0}
-.logo{display:flex;align-items:center}
-.logoimg{width:47px;height:47px;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+.logo{display:flex;align-items:center;gap:11px}
+.logoimg{width:47px;height:47px;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.brandname{font-family:"Playfair Display",Georgia,serif;font-size:16.5px;font-weight:700;letter-spacing:2.2px;color:#fff}
 nav.main{display:flex;gap:24px;margin-left:auto;align-items:center}
-nav.main>a{color:var(--navy);font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
+nav.main>a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.4px;padding:8px 2px}
 nav.main>a:hover{color:var(--gold)}
 .has-drop{position:relative}
-.drop-btn{background:none;border:none;color:var(--navy);font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
+.drop-btn{background:none;border:none;color:#fff;font:inherit;font-weight:600;font-size:14.5px;letter-spacing:.4px;padding:8px 2px;cursor:pointer}
 .drop-btn:hover{color:var(--gold)}
 .drop{position:absolute;right:0;top:calc(100% + 12px);width:min(540px,92vw);background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 24px 60px rgba(10,25,45,.30);padding:22px 24px 10px;display:none}
 .drop.open{display:block}
@@ -32,7 +33,7 @@ nav.main>a:hover{color:var(--gold)}
 .drop li a{display:block;padding:4.5px 6px;font-size:14px;border-radius:7px;color:#2a3a49}
 .drop li a:hover{background:#f4f7fa;color:var(--navy);font-weight:600}
 .drop .all{display:block;text-align:center;border-top:1px solid var(--line);padding:11px 0 5px;font-weight:700;color:var(--navy);font-size:14.5px}
-.burger{display:none;background:none;border:none;color:var(--navy);font-size:26px;cursor:pointer;margin-left:auto}
+.burger{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
 /* ===== Hero ===== */
 .hero{position:relative;min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#0a1c33}
 .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
@@ -50,6 +51,8 @@ nav.main>a:hover{color:var(--gold)}
 .hero .stat span{font-size:13.5px;color:#dbe5ee;line-height:1.5;display:block}
 /* ===== Sections ===== */
 section.blk{padding:74px 0 10px}
+.cloudbg{background-color:#f3f6f9;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cpath d='M0 28 Q14 6 28 28 T56 28' fill='none' stroke='%230e2a4e' stroke-opacity='0.10' stroke-width='2'/%3E%3C/svg%3E");border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;padding-top:64px}
+.sec-head::after{content:"";display:block;width:118px;height:13px;margin:15px auto 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='118' height='13' viewBox='0 0 118 13'%3E%3Cpath d='M2 11 Q16 1 30 11 T58 11 T86 11 T114 11' fill='none' stroke='%23c9a227' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .sec-head{text-align:center;margin-bottom:36px}
 .sec-head h2{font-size:clamp(29px,3.6vw,40px);margin:8px 0 6px;color:#14202e}
 .sec-head p{color:var(--muted);margin:0;font-size:15.5px}
@@ -118,9 +121,9 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .drop .cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
- nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(14,42,78,.13)}
+ nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(14,42,78,.30)}
  nav.main.open{display:flex}
- nav.main>a{padding:11px 2px;border-bottom:1px solid var(--line)}
+ nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
  .has-drop{position:static}
  .drop-btn{width:100%;margin-top:10px;text-align:left}
  .drop{position:static;width:100%;margin-top:10px;box-shadow:none;max-height:46vh;overflow:auto}
@@ -142,14 +145,14 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .lb button{width:48px;height:48px}
 }
 </style>
-<title>Đà Nẵng – Hội An — cầu Rồng phun lửa, phố cổ lên đèn — VINHHSK</title>
+<title>Vinhhsk</title>
 <meta name="description" content="Cầu Rồng phun lửa giữa đêm, Chùa Cầu trầm mặc, thuyền thúng lắc lư giữa rừng dừa và phố cổ vàng rực ánh đèn — một chuyến đi gom trọn hai thành phố.">
 <meta property="og:title" content="Đà Nẵng – Hội An — cầu Rồng phun lửa, phố cổ lên đèn">
 <meta property="og:image" content="https://vinhhsk.io.vn/images/da-nang-hoi-an/cover.jpg">
 </head><body>
 <header class="site solid">
  <div class="wrap"><div class="nav">
-  <a class="logo" href="index.html"><img class="logoimg" src="images/logo.png" alt="VINHHSK"></a>
+  <a class="logo" href="index.html"><img class="logoimg" src="images/logo.png" alt="VINHHSK"><span class="brandname">VinhHSK</span></a>
   <button class="burger" id="burger" aria-label="Menu">☰</button>
   <nav class="main" id="mainnav">
    <a href="index.html">Trang chủ</a>
