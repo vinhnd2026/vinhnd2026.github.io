@@ -112,14 +112,12 @@ section.blk{padding:74px 0 10px}
 .lb button:hover{background:var(--gold);color:#16222e}
 .lb .x{position:absolute;top:16px;right:16px}
 /* ===== Hieu ung cuon trang ===== */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv{opacity:0;transform:translateY(38px);transition:opacity .85s ease,transform .85s ease}
 .rv.vis{opacity:1;transform:none}
 .lb img.anim{animation:lbIn .38s ease}
 @keyframes lbIn{from{opacity:.25;transform:scale(.965)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){
- .rv{opacity:1;transform:none;transition:none}
- .lb img.anim{animation:none}
- .drop.open{animation:none}
+ .rv{transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 }
 /* ===== Footer ===== */
 footer.site{margin-top:70px;background:#edf1f4;color:#41586d;border-top:1px solid var(--line)}
