@@ -183,6 +183,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
 .greet .bub{position:relative;background:#fff;color:#22303d;border-radius:4px 16px 16px 16px;box-shadow:0 14px 34px rgba(10,25,45,.28);padding:11px 30px 11px 14px;font-size:13.5px;line-height:1.55}
 .greet .bub b{display:block;color:#0e2a4e;font-size:12px;letter-spacing:.6px;margin-bottom:2px}
 .greet .bub::before{content:"";position:absolute;left:-6px;top:12px;border:6px solid transparent;border-right-color:#fff;border-left:0}
+.greet .gwarm{display:block;margin-top:5px;font-size:12.5px;color:#5a6d7f}
 .greet .gx{position:absolute;top:5px;right:8px;background:none;border:none;color:#8fa1b3;font-size:15px;cursor:pointer;line-height:1;padding:2px}
 .greet .gx:hover{color:#0e2a4e}
 @media(max-width:640px){.greet{top:76px;right:12px}}
@@ -212,7 +213,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
 </header>
 <div class="greet" id="greet">
  <img class="av" src="images/logo.png" alt="VinhHSK">
- <div class="bub"><b>VinhHSK</b><span id="greetText"></span><button class="gx" id="greetX" aria-label="Đóng">✕</button></div>
+ <div class="bub"><b>VinhHSK</b><span id="greetText"></span><span class="gwarm">❄️ Mùa đông rồi — ra đường nhớ mặc áo ấm, giữ gìn sức khỏe nhé!</span><button class="gx" id="greetX" aria-label="Đóng">✕</button></div>
 </div>
 <div class="hero">
  <img class="bg" src="images/hero.jpg" alt="Nước biển Nha Trang trong veo bên những tảng đá">
@@ -314,6 +315,24 @@ if('IntersectionObserver' in window){
  })},{threshold:0.1});
  rvEls.forEach(function(el){io.observe(el)});
 }
+(function(){
+ var c=document.createElement('canvas');c.id='snowfx';
+ c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:150';
+ document.body.appendChild(c);
+ var g=c.getContext('2d'),W,H,flakes=[];
+ function size(){W=c.width=innerWidth;H=c.height=innerHeight}
+ size();addEventListener('resize',size);
+ var N=Math.max(30,Math.min(130,Math.floor(innerWidth/11)));
+ for(var i=0;i<N;i++)flakes.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:0.8+Math.random()*3.2,s:0.35+Math.random()*1.05,o:0.35+Math.random()*0.6,ph:Math.random()*6.28,sw:0.4+Math.random()*0.9});
+ (function tick(){
+  g.clearRect(0,0,W,H);g.fillStyle='#ffffff';g.shadowColor='rgba(120,150,190,.85)';g.shadowBlur=3;
+  for(var i=0;i<flakes.length;i++){var f=flakes[i];f.y+=f.s;f.ph+=0.008;f.x+=Math.sin(f.ph)*f.sw*0.6;
+   if(f.y>H+6){f.y=-6;f.x=Math.random()*W}
+   if(f.x>W+6)f.x=-6;else if(f.x<-6)f.x=W+6;
+   g.globalAlpha=f.o;g.beginPath();g.arc(f.x,f.y,f.r,0,6.283);g.fill();}
+  g.globalAlpha=1;requestAnimationFrame(tick);
+ })();
+})();
 </script>
 <script>
 (function(){
