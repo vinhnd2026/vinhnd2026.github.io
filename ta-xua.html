@@ -120,9 +120,17 @@ section.blk{padding:74px 0 10px}
  .rv{transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 }
 /* ===== Nguoi tuyet mua dong ===== */
-.snowman{position:fixed;left:14px;bottom:10px;width:86px;z-index:140;cursor:pointer;animation:smBob 3.4s ease-in-out infinite}
-.snowman svg{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 10px rgba(10,25,45,.25))}
-@keyframes smBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.snowman{position:fixed;left:14px;bottom:10px;width:86px;z-index:140;cursor:pointer}
+.snowman svg{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 10px rgba(10,25,45,.25));transform-origin:50% 92%;animation:smDance 1.8s ease-in-out infinite}
+@keyframes smDance{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-7px) rotate(-2.4deg)}50%{transform:translateY(0) rotate(0deg)}75%{transform:translateY(-7px) rotate(2.4deg)}}
+.snowman .arm-r{transform-box:fill-box;transform-origin:0% 100%;animation:smWave 1.2s ease-in-out infinite}
+@keyframes smWave{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-16deg)}}
+.snowman .arm-l{transform-box:fill-box;transform-origin:100% 100%;animation:smSwayArm 1.8s ease-in-out infinite}
+@keyframes smSwayArm{0%,100%{transform:rotate(0deg)}50%{transform:rotate(9deg)}}
+.snowman .note{position:absolute;color:#c9a227;font-weight:700;opacity:0;pointer-events:none;animation:smNote 2.6s ease-in infinite}
+.snowman .n1{right:-4px;top:-10px;font-size:17px}
+.snowman .n2{right:-18px;top:14px;font-size:13px;animation-delay:1.3s}
+@keyframes smNote{0%{opacity:0;transform:translateY(6px) rotate(-6deg)}25%{opacity:1}100%{opacity:0;transform:translateY(-22px) rotate(10deg)}}
 .snowman .scarf-tail{transform-box:fill-box;transform-origin:50% 0;animation:smSway 2.6s ease-in-out infinite}
 @keyframes smSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(5deg)}}
 .snowman .sm-bub{position:absolute;left:66px;bottom:80px;width:218px;background:#fff;color:#22303d;border-radius:14px;box-shadow:0 12px 28px rgba(10,25,45,.28);padding:10px 26px 10px 13px;font-size:12.5px;line-height:1.5;opacity:0;transform:translateY(6px) scale(.95);pointer-events:none;transition:.3s}
@@ -288,10 +296,11 @@ else if(gh>=13&&gh<18)gt='Chào buổi chiều! Mời bạn dạo một vòng qu
 else if(gh>=18&&gh<23)gt='Chào buổi tối! Thong thả xem lại những khung hình đẹp trong ngày nhé.';
 else gt='Khuya rồi đó 🌙 Xem nốt vài tấm rồi đi ngủ sớm nhé — mai còn nhiều điều hay đang chờ!';
 sm.innerHTML='<div class="sm-bub"><b>VinhHSK</b><span>'+gt+'</span><span class="sm-warm">❄️ Mùa đông rồi — ra đường nhớ mặc áo ấm, giữ gìn sức khỏe nhé!</span><button class="sm-x" aria-label="Đóng">✕</button></div>'
++'<span class="note n1">♪</span><span class="note n2">♫</span>'
 +'<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">'
 +'<ellipse cx="50" cy="112" rx="40" ry="8" fill="#e8f1f8"/>'
-+'<path d="M38 76 L16 60 M16 60 l-6 -2 M16 60 l-2 -6" stroke="#7a5230" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
-+'<path d="M62 74 L84 52 M84 52 l6 -3 M84 52 l3 -6" stroke="#7a5230" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
++'<path class="arm-l" d="M38 76 L16 60 M16 60 l-6 -2 M16 60 l-2 -6" stroke="#7a5230" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
++'<path class="arm-r" d="M62 74 L84 52 M84 52 l6 -3 M84 52 l3 -6" stroke="#7a5230" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
 +'<circle cx="50" cy="90" r="23" fill="#ffffff" stroke="#d7e3ee" stroke-width="1.5"/>'
 +'<circle cx="50" cy="58" r="16" fill="#ffffff" stroke="#d7e3ee" stroke-width="1.5"/>'
 +'<circle cx="50" cy="84" r="1.9" fill="#22303d"/><circle cx="50" cy="94" r="1.9" fill="#22303d"/>'
@@ -306,8 +315,8 @@ sm.innerHTML='<div class="sm-bub"><b>VinhHSK</b><span>'+gt+'</span><span class="
 +'</svg>';
 document.body.appendChild(sm);
 sm.addEventListener('click',function(){sm.classList.toggle('show')});
-sm.querySelector('.sm-x').addEventListener('click',function(e){e.stopPropagation();sm.classList.remove('show');try{sessionStorage.setItem('greetClosed','1')}catch(err){}});
-try{if(!sessionStorage.getItem('greetClosed')){setTimeout(function(){sm.classList.add('show')},900)}}catch(err){setTimeout(function(){sm.classList.add('show')},900)}
+sm.querySelector('.sm-x').addEventListener('click',function(e){e.stopPropagation();sm.classList.remove('show')});
+setTimeout(function(){sm.classList.add('show')},400);
 </script>
 <div class="lb" id="lb">
  <button class="x" id="lbx" aria-label="Đóng">✕</button>
