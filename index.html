@@ -115,6 +115,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#cbbd9d}
 #snowfx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:150}
 @media(max-width:900px){.dest-grid{grid-template-columns:repeat(2,1fr)}.post-grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.hero .grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){
+ html,body{overflow-x:clip}
  .wrap{padding:0 16px}
  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(67,51,31,.25)}
  nav.main.open{display:flex}
@@ -145,6 +146,14 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#cbbd9d}
 .rv.vis{opacity:1;transform:none}
 .lb img.anim{animation:lbIn .38s ease}
 @keyframes lbIn{from{opacity:.25;transform:scale(.965)}to{opacity:1;transform:none}}
+/* ===== Phong to anh trong lightbox ===== */
+#lbimg{touch-action:none;cursor:zoom-in}
+#lbimg.z{cursor:grab}
+#lbimg.anim{animation:lbFade .35s ease}
+@keyframes lbFade{from{opacity:.3}to{opacity:1}}
+.lb .bar{gap:10px;flex-wrap:wrap;justify-content:center}
+#lbzoom{min-width:50px;text-align:center;font-size:13.5px;color:#dbe5ee}
+.lb .hint{margin-top:9px;font-size:12.5px;color:rgba(219,229,238,.65);text-align:center;padding:0 16px}
 @media (prefers-reduced-motion: reduce){
  .rv{transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 }
@@ -169,62 +178,6 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#cbbd9d}
 .snowman .sm-x:hover{color:var(--pine)}
 .snowman.show .sm-bub{opacity:1;transform:none;pointer-events:auto}
 @media(max-width:640px){.snowman{width:64px;left:10px;bottom:8px}.snowman .sm-bub{left:52px;bottom:62px;width:178px}}
-/* ===== Footer ===== */
-footer.site{margin-top:70px;background:#edf1f4;color:#47604f;border-top:1px solid var(--line)}
-footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
-footer.site .logo{justify-content:center}
-footer.site .logoimg{width:62px;height:62px}
-footer.site nav{display:flex;gap:22px;justify-content:center;margin:14px 0 10px;flex-wrap:wrap}
-footer.site nav a{color:var(--pine);font-size:14px;font-weight:600}
-footer.site nav a:hover{color:var(--gold)}
-footer.site p{margin:4px 0;font-size:13.5px;color:#5f7263}
-@media(max-width:900px){
- .dest-grid{grid-template-columns:repeat(2,1fr)}
- .post-grid{grid-template-columns:repeat(2,1fr)}
- .gallery{grid-template-columns:repeat(2,1fr)}
- .about{grid-template-columns:1fr}
- .drop .cols{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
- html,body{overflow-x:clip}
- .wrap{padding:0 16px}
- .brandname{font-size:15px;letter-spacing:1.2px}
- .hero .eyebrow{font-size:11px;letter-spacing:2px}
- .hero h1{font-size:31px;line-height:1.18}
- .hero p{font-size:15px;line-height:1.55;margin-bottom:18px}
- .btn{padding:12px 22px;font-size:14.5px}
- .hero .stats{margin-top:26px}
- .hero .stats .wrap{gap:9px;padding-top:14px;padding-bottom:16px}
- .hero .stat b{font-size:17.5px;margin-bottom:1px}
- .hero .stat span{font-size:12.5px;line-height:1.45}
- .sec-head h2{font-size:26px}
- .post .bd{padding:15px 16px 17px}
- .post h3{font-size:19px}
- .page-hero h1{font-size:26px}
- .article p{font-size:15.5px;line-height:1.75}
- nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 18px;gap:2px;box-shadow:0 18px 30px rgba(14,42,78,.30)}
- nav.main.open{display:flex}
- nav.main>a{padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
- .has-drop{position:static}
- .drop-btn{width:100%;margin-top:10px;text-align:left}
- .drop{position:static;width:100%;margin-top:10px;box-shadow:none;max-height:46vh;overflow:auto}
- .burger{display:block}
- .logo{margin-right:0}
- .post-grid{grid-template-columns:1fr}
- .hero .stats .wrap{grid-template-columns:1fr}
- .hero{min-height:0}
- .hero .inner{padding-top:52px}
- .dest-grid{gap:10px}
- .dest .cap h3{font-size:16.5px}
- .dest .cap{padding:30px 12px 12px}
- .gallery{gap:8px;padding:0 16px}
- .logoimg{width:40px;height:40px}
- .page-hero .bg{height:38vh;min-height:240px}
- .sec-head{margin-bottom:26px}
- section.blk{padding:48px 0 6px}
- .article{padding:32px 16px 4px}
- .lb button{width:48px;height:48px}
-}
 </style>
 <title>Vinhhsk</title>
 <meta name="description" content="Blog du lịch vinhhsk.io.vn: nhật ký hành trình qua 8 điểm đến — Cao Bằng, Đà Nẵng – Hội An, Huế, Y Tý, Tà Xùa, Nha Trang, Đà Lạt và Thạch Gia Trang — cùng góc học tập tiếng Trung, tiếng Anh.">
