@@ -125,9 +125,13 @@ section.blk{padding:74px 0 10px}
 @keyframes smBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .snowman .scarf-tail{transform-box:fill-box;transform-origin:50% 0;animation:smSway 2.6s ease-in-out infinite}
 @keyframes smSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(5deg)}}
-.snowman .sm-bub{position:absolute;left:66px;bottom:80px;width:172px;background:#fff;color:#22303d;border-radius:14px;box-shadow:0 12px 28px rgba(10,25,45,.28);padding:9px 12px;font-size:12.5px;line-height:1.5;opacity:0;transform:translateY(6px) scale(.95);pointer-events:none;transition:.3s}
+.snowman .sm-bub{position:absolute;left:66px;bottom:80px;width:218px;background:#fff;color:#22303d;border-radius:14px;box-shadow:0 12px 28px rgba(10,25,45,.28);padding:10px 26px 10px 13px;font-size:12.5px;line-height:1.5;opacity:0;transform:translateY(6px) scale(.95);pointer-events:none;transition:.3s}
+.snowman .sm-bub b{display:block;color:#0e2a4e;font-size:12px;letter-spacing:.6px;margin-bottom:2px}
+.snowman .sm-warm{display:block;margin-top:5px;font-size:12px;color:#5a6d7f}
+.snowman .sm-x{position:absolute;top:5px;right:8px;background:none;border:none;color:#8fa1b3;font-size:14px;cursor:pointer;line-height:1;padding:2px}
+.snowman .sm-x:hover{color:#0e2a4e}
 .snowman.show .sm-bub{opacity:1;transform:none;pointer-events:auto}
-@media(max-width:640px){.snowman{width:64px;left:10px;bottom:8px}.snowman .sm-bub{left:52px;bottom:62px;width:152px}}
+@media(max-width:640px){.snowman{width:64px;left:10px;bottom:8px}.snowman .sm-bub{left:52px;bottom:62px;width:178px}}
 /* ===== Footer ===== */
 footer.site{margin-top:70px;background:#edf1f4;color:#41586d;border-top:1px solid var(--line)}
 footer.site .wrap{padding-top:38px;padding-bottom:30px;text-align:center}
@@ -185,18 +189,6 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
  .lb button{width:48px;height:48px}
 }
 </style>
-<style>
-.greet{position:fixed;top:84px;right:18px;z-index:90;display:flex;gap:9px;align-items:flex-start;max-width:min(320px,86vw);opacity:0;transform:translateY(-8px) scale(.97);pointer-events:none;transition:opacity .45s ease,transform .45s ease}
-.greet.show{opacity:1;transform:none;pointer-events:auto}
-.greet .av{width:38px;height:38px;border-radius:50%;box-shadow:0 4px 14px rgba(10,25,45,.35);flex:none;background:#fff}
-.greet .bub{position:relative;background:#fff;color:#22303d;border-radius:4px 16px 16px 16px;box-shadow:0 14px 34px rgba(10,25,45,.28);padding:11px 30px 11px 14px;font-size:13.5px;line-height:1.55}
-.greet .bub b{display:block;color:#0e2a4e;font-size:12px;letter-spacing:.6px;margin-bottom:2px}
-.greet .bub::before{content:"";position:absolute;left:-6px;top:12px;border:6px solid transparent;border-right-color:#fff;border-left:0}
-.greet .gwarm{display:block;margin-top:5px;font-size:12.5px;color:#5a6d7f}
-.greet .gx{position:absolute;top:5px;right:8px;background:none;border:none;color:#8fa1b3;font-size:15px;cursor:pointer;line-height:1;padding:2px}
-.greet .gx:hover{color:#0e2a4e}
-@media(max-width:640px){.greet{top:76px;right:12px}}
-</style>
 <title>Vinhhsk</title>
 <meta name="description" content="Blog du lịch vinhhsk.io.vn: nhật ký hành trình qua 8 điểm đến — Cao Bằng, Đà Nẵng – Hội An, Huế, Y Tý, Tà Xùa, Nha Trang, Đà Lạt và Thạch Gia Trang — cùng góc học tập tiếng Trung, tiếng Anh.">
 <meta property="og:title" content="VINHHSK — Blog du lịch">
@@ -220,10 +212,6 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#5a6d7f}
   </nav>
  </div></div>
 </header>
-<div class="greet" id="greet">
- <img class="av" src="images/logo.png" alt="VinhHSK">
- <div class="bub"><b>VinhHSK</b><span id="greetText"></span><span class="gwarm">❄️ Mùa đông rồi — ra đường nhớ mặc áo ấm, giữ gìn sức khỏe nhé!</span><button class="gx" id="greetX" aria-label="Đóng">✕</button></div>
-</div>
 <div class="hero">
  <img class="bg" src="images/hero.jpg" alt="Nước biển Nha Trang trong veo bên những tảng đá">
  <div class="shade"></div>
@@ -362,7 +350,13 @@ if('IntersectionObserver' in window){
  })();
 })();
 var sm=document.createElement('div');sm.className='snowman';sm.title='Người tuyết VinhHSK';
-sm.innerHTML='<div class="sm-bub">Trời lạnh rồi — ra đường nhớ mặc áo ấm, giữ gìn sức khỏe nhé! 🧣</div>'
+var gh=new Date().getHours(),gt;
+if(gh>=5&&gh<11)gt='Chào buổi sáng! Chúc bạn một ngày mới tốt lành, đầy năng lượng ☀️';
+else if(gh>=11&&gh<13)gt='Chào buổi trưa! Nghỉ ngơi một chút, ghé xem vài khung hình đẹp nhé.';
+else if(gh>=13&&gh<18)gt='Chào buổi chiều! Mời bạn dạo một vòng qua những chuyến đi đã qua.';
+else if(gh>=18&&gh<23)gt='Chào buổi tối! Thong thả xem lại những khung hình đẹp trong ngày nhé.';
+else gt='Khuya rồi đó 🌙 Xem nốt vài tấm rồi đi ngủ sớm nhé — mai còn nhiều điều hay đang chờ!';
+sm.innerHTML='<div class="sm-bub"><b>VinhHSK</b><span>'+gt+'</span><span class="sm-warm">❄️ Mùa đông rồi — ra đường nhớ mặc áo ấm, giữ gìn sức khỏe nhé!</span><button class="sm-x" aria-label="Đóng">✕</button></div>'
 +'<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">'
 +'<ellipse cx="50" cy="112" rx="40" ry="8" fill="#e8f1f8"/>'
 +'<path d="M38 76 L16 60 M16 60 l-6 -2 M16 60 l-2 -6" stroke="#7a5230" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
@@ -381,19 +375,7 @@ sm.innerHTML='<div class="sm-bub">Trời lạnh rồi — ra đường nhớ m�
 +'</svg>';
 document.body.appendChild(sm);
 sm.addEventListener('click',function(){sm.classList.toggle('show')});
-</script>
-<script>
-(function(){
- var h=new Date().getHours(),t;
- if(h>=5&&h<11)t='Chào buổi sáng! Chúc bạn một ngày mới tốt lành, đầy năng lượng ☀️';
- else if(h>=11&&h<13)t='Chào buổi trưa! Nghỉ ngơi một chút, ghé xem vài khung hình đẹp nhé.';
- else if(h>=13&&h<18)t='Chào buổi chiều! Mời bạn dạo một vòng qua những chuyến đi đã qua.';
- else if(h>=18&&h<23)t='Chào buổi tối! Thong thả xem lại những khung hình đẹp trong ngày nhé.';
- else t='Khuya rồi đó 🌙 Xem nốt vài tấm rồi đi ngủ sớm nhé — mai còn nhiều điều hay đang chờ!';
- var g=document.getElementById('greet');
- document.getElementById('greetText').textContent=t;
- try{if(!sessionStorage.getItem('greetClosed')){setTimeout(function(){g.classList.add('show')},700)}}catch(e){setTimeout(function(){g.classList.add('show')},700)}
- document.getElementById('greetX').addEventListener('click',function(){g.classList.remove('show');try{sessionStorage.setItem('greetClosed','1')}catch(e){}});
-})();
+sm.querySelector('.sm-x').addEventListener('click',function(e){e.stopPropagation();sm.classList.remove('show');try{sessionStorage.setItem('greetClosed','1')}catch(err){}});
+try{if(!sessionStorage.getItem('greetClosed')){setTimeout(function(){sm.classList.add('show')},900)}}catch(err){setTimeout(function(){sm.classList.add('show')},900)}
 </script>
 </body></html>
