@@ -3,7 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&family=Itim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;600;700&family=Itim&family=Noto+Serif+JP:wght@600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="vi" href="https://vinhhsk.io.vn/da-nang-hoi-an.html">
+<link rel="alternate" hreflang="en" href="https://vinhhsk.io.vn/en/da-nang-hoi-an.html">
+<link rel="alternate" hreflang="ja" href="https://vinhhsk.io.vn/ja/da-nang-hoi-an.html">
+<link rel="alternate" hreflang="x-default" href="https://vinhhsk.io.vn/da-nang-hoi-an.html">
 <style>
 :root{--paper:#f6efe3;--card:#fffdf6;--ink:#43331f;--muted:#7a6a52;--rust:#b05c2a;--moss:#687c46;--gold:#c9a227;--pine:#687c46;--line:#e5d9c3}
 *{box-sizing:border-box}
@@ -179,6 +183,16 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#cbbd9d}
 .snowman .sm-x:hover{color:var(--pine)}
 .snowman.show .sm-bub{opacity:1;transform:none;pointer-events:auto}
 @media(max-width:640px){.snowman{width:64px;left:10px;bottom:8px}.snowman .sm-bub{left:52px;bottom:62px;width:178px}}
+
+/* ===== Language switcher + JP font fallbacks ===== */
+.langsw{display:flex;gap:5px;align-items:center}
+.langsw a{font-size:12.5px;font-weight:700;letter-spacing:.4px;padding:5px 10px;border-radius:999px;border:1.5px solid #d9c9a8;color:var(--muted);background:rgba(255,253,246,.75)}
+.langsw a:hover{border-color:var(--rust);color:var(--rust)}
+.langsw a.on{background:var(--rust);border-color:var(--rust);color:#fff8ea}
+body{font-family:"Be Vietnam Pro","Noto Sans JP","Segoe UI",system-ui,Arial,sans-serif}
+h1,h2,h3{font-family:"Playfair Display","Noto Serif JP",Georgia,serif}
+.brandname{font-family:"Playfair Display","Noto Serif JP",serif}
+.photo figcaption,.sec-head .eyebrow,.about .eyebrow,.dest .cap span,.post .meta,.page-head .meta,.backline a{font-family:"Itim","Noto Sans JP",cursive}
 </style>
 <title>Vinhhsk</title>
 <meta name="description" content="Cầu Rồng phun lửa giữa đêm, Chùa Cầu trầm mặc, thuyền thúng lắc lư giữa rừng dừa và phố cổ vàng rực ánh đèn — một chuyến đi gom trọn hai thành phố.">
@@ -201,6 +215,7 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#cbbd9d}
     </div>
    </div>
   </nav>
+  <div class="langsw"><a href="da-nang-hoi-an.html" class="on">VI</a><a href="en/da-nang-hoi-an.html">EN</a><a href="ja/da-nang-hoi-an.html">JA</a></div>
  </div></div>
 </header>
 <div class="page-head">
