@@ -224,6 +224,21 @@ header.site::after{content:"";display:block;height:7px;background:repeating-line
 .article p:first-of-type::first-letter{font-family:"Playfair Display","Noto Serif JP",serif;font-size:2.15em;font-weight:700;color:#9c221e;float:left;line-height:.95;padding:5px 10px 0 0}
 footer.site{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23e0bc72' stroke-width='2' stroke-linecap='round' opacity='0.20'%3E%3Cpath d='M52 58a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M40 62h-9M72 62h7'/%3E%3Cpath d='M127 128a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M115 132h-9M147 132h7'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px;position:relative}
 footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:repeating-linear-gradient(90deg,#d9a441 0 12px,transparent 12px 18px,#f7e8c8 18px 30px,transparent 30px 36px);opacity:.85}
+
+/* ===== Bo sung theo tham khao truyen thong: luu bai, thuy mac, hoi van that, thu phap ===== */
+section.blk{padding:74px 0 10px}
+.hero{padding:66px 0 14px}
+.article{line-height:1.92}
+header.site::after{height:11px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' preserveAspectRatio='none'%3E%3Cpath d='M3 25 V5 H23 V21 H9 V11 H17' fill='none' stroke='%23b3872c' stroke-width='2'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:28px 11px;opacity:.95}
+footer.site::before{height:11px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' preserveAspectRatio='none'%3E%3Cpath d='M3 25 V5 H23 V21 H9 V11 H17' fill='none' stroke='%23b3872c' stroke-width='2'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:28px 11px;opacity:.9}
+section.blk{position:relative}
+section.blk::before{content:"";position:absolute;top:24px;left:50%;transform:translateX(-50%);width:min(680px,82%);height:16px;background:radial-gradient(ellipse 50% 100% at 50% 50%,rgba(47,29,18,.22),rgba(47,29,18,0) 70%);pointer-events:none}
+section.blk::after{content:"◆";position:absolute;top:19px;left:50%;transform:translateX(-50%);color:var(--rust);font-size:11px;background:var(--paper);padding:0 10px}
+.hero::before{font-family:"KaiTi","Kaiti SC","STKaiti","Noto Serif JP",serif;font-size:17px}
+.photo::after{font-family:"KaiTi","Kaiti SC","STKaiti","Noto Serif JP",serif}
+.page-head{position:relative}
+.page-head::before{content:'山水有相逢';position:absolute;top:38px;right:calc(50% - 470px);writing-mode:vertical-rl;font-family:"KaiTi","Kaiti SC","STKaiti","Noto Serif JP",serif;font-size:15px;letter-spacing:6px;color:rgba(156,34,30,.38)}
+@media(max-width:1020px){.page-head::before{display:none}}
 </style>
 <title>Vinhhsk</title>
 <meta name="description" content="From the majestic Ngo Mon Gate, dragon boats on the Perfume River and Trang Tien Bridge, to the red buildings of Quoc Hoc school and the old Hue station — the old capital appears solemn yet close.">
