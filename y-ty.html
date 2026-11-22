@@ -9,11 +9,11 @@
 <link rel="alternate" hreflang="ja" href="https://vinhhsk.io.vn/ja/y-ty.html">
 <link rel="alternate" hreflang="x-default" href="https://vinhhsk.io.vn/y-ty.html">
 <style>
-:root{--paper:#f7efdc;--card:#fffaf0;--ink:#3a2318;--muted:#7d6850;--rust:#a02723;--moss:#3f7263;--gold:#bf9436;--pine:#3f7263;--line:#e6d3a7}
+:root{--paper:#f4e9d0;--card:#fffaf0;--ink:#2f1d12;--muted:#7d6850;--rust:#a02723;--moss:#3f7263;--gold:#b3872c;--pine:#3f7263;--line:#e6d3a7}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:"Be Vietnam Pro","Segoe UI",system-ui,Arial,sans-serif;background:var(--paper);color:var(--ink);
- background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23b98f3e' stroke-width='2' stroke-linecap='round' opacity='0.16'%3E%3Cpath d='M52 58a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M40 62h-9M72 62h7'/%3E%3Cpath d='M127 128a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M115 132h-9M147 132h7'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px}
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23b98f3e' stroke-width='2' stroke-linecap='round' opacity='0.23'%3E%3Cpath d='M52 58a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M40 62h-9M72 62h7'/%3E%3Cpath d='M127 128a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M115 132h-9M147 132h7'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px}
 body::before{content:"";position:fixed;inset:9px;border:1px solid rgba(160,39,35,.45);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px rgba(191,148,54,.6);border-radius:5px;pointer-events:none;z-index:5}
 img{max-width:100%}
 a{text-decoration:none;color:inherit}
@@ -184,23 +184,46 @@ footer.site p{margin:4px 0;font-size:13.5px;color:#e3c98f}
 .snowman.show .sm-bub{opacity:1;transform:none;pointer-events:auto}
 @media(max-width:640px){.snowman{width:64px;left:10px;bottom:8px}.snowman .sm-bub{left:52px;bottom:62px;width:178px}}
 
-/* ===== Language switcher + JP font fallbacks ===== */
-.langsw{display:flex;gap:5px;align-items:center}
-.langsw a{font-size:12.5px;font-weight:700;letter-spacing:.4px;padding:5px 10px;border-radius:999px;border:1.5px solid #d3af62;color:var(--muted);background:rgba(255,250,240,.8)}
-.langsw a:hover{border-color:var(--rust);color:var(--rust)}
-.langsw a.on{background:var(--rust);border-color:var(--rust);color:#fff8ea}
+/* ===== Chon ngon ngu dang bang tha ===== */
+.lang-btn{background:rgba(255,250,240,.85);border:1.5px solid #d3af62;color:var(--ink);font:inherit;font-weight:700;font-size:13.5px;padding:7px 13px;border-radius:999px;cursor:pointer}
+.lang-btn:hover{border-color:var(--rust);color:var(--rust)}
+.lang-panel{width:196px;padding:10px}
+.lang-panel::before{right:36px}
+.lang-panel a{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;font-size:14.5px;border-radius:8px;color:var(--ink)}
+.lang-panel a:hover{background:#fdf3da;color:var(--rust)}
+.lang-panel a.on{font-weight:700;color:var(--rust)}
+.lang-panel a.on::after{content:'✓';font-size:13px}
 body{font-family:"Be Vietnam Pro","Noto Sans JP","Segoe UI",system-ui,Arial,sans-serif}
 h1,h2,h3{font-family:"Playfair Display","Noto Serif JP",Georgia,serif}
 .brandname{font-family:"Playfair Display","Noto Serif JP",serif}
 .photo figcaption,.sec-head .eyebrow,.about .eyebrow,.dest .cap span,.post .meta,.page-head .meta,.backline a{font-family:"Itim","Noto Sans JP",cursive}
 
+/* ===== Burger ve goc phai ngoai cung + bang ngon ngu tren dien thoai ===== */
+@media(max-width:640px){.logo{margin-right:0}.lang-drop{order:2;margin-left:auto;position:relative}.burger{order:3;margin-left:10px}.lang-panel{position:absolute;right:0;top:calc(100% + 10px);width:196px;box-shadow:0 24px 60px rgba(58,35,24,.25)}.lang-panel::before{display:block}}
+
 /* ===== Net Trung Hoa rieng cua theme nay ===== */
-header.site::after{content:"";display:block;height:7px;background:repeating-linear-gradient(90deg,var(--rust) 0 12px,transparent 12px 18px,var(--gold) 18px 30px,transparent 30px 36px);opacity:.75}
+header.site::after{content:"";display:block;height:7px;background:repeating-linear-gradient(90deg,var(--rust) 0 12px,transparent 12px 18px,var(--gold) 18px 30px,transparent 30px 36px);opacity:.9}
 .sec-head .eyebrow::before,.sec-head .eyebrow::after,.about .eyebrow::before{content:"◆";color:var(--rust);font-size:10px;margin:0 9px;vertical-align:2px}
-.about .eyebrow::after{content:""}
 .snowman svg path[fill="#0e2a4e"]{fill:#a02723}
 .snowman .sm-bub{border:1px solid #d3af62}
 .hero h1{color:#5d1a12}
+
+/* ===== Dam chat co hon ===== */
+::selection{background:#9c221e;color:#ffe9c4}
+.photo{box-shadow:0 0 0 1px #c9a24a,0 0 0 5px #fffaf0,0 0 0 6px rgba(179,135,44,.55),0 18px 40px rgba(47,29,18,.25)}
+.photo::after{content:'遊';position:absolute;right:16px;bottom:52px;width:27px;height:27px;background:#9c221e;color:#fdf3da;font-family:"Playfair Display","Noto Serif JP",serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:4px;box-shadow:inset 0 0 0 1.5px rgba(253,243,218,.75);transform:rotate(2deg);z-index:3}
+.gallery a{box-shadow:0 0 0 1px #d9bc76,0 10px 22px rgba(47,29,18,.16)}
+.hero{position:relative}
+.hero::before{content:'行万里路 · 读万卷书';position:absolute;top:64px;right:14px;writing-mode:vertical-rl;font-family:"Playfair Display","Noto Serif JP",serif;font-size:15px;letter-spacing:7px;color:rgba(156,34,30,.45)}
+@media(max-width:1180px){.hero::before{display:none}}
+.hero h1::after{content:"";display:block;width:170px;height:10px;margin-top:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='10' viewBox='0 0 130 10'%3E%3Cpath d='M2 8 H24 V3 H44 V8 H64 V3 H84 V8 H104 V3 H124 V8' fill='none' stroke='%23b3872c' stroke-width='2.2'/%3E%3C/svg%3E") center/contain no-repeat}
+.btn{box-shadow:inset 0 0 0 1.5px rgba(255,233,196,.55),0 8px 20px rgba(160,39,35,.32)}
+.chip{font-family:"Playfair Display","Noto Serif JP",serif}
+.note{box-shadow:inset 0 0 0 1px rgba(255,250,240,.7),inset 0 0 0 2.5px rgba(179,135,44,.45),0 10px 22px rgba(47,29,18,.13)}
+.drop{box-shadow:inset 0 0 0 1px rgba(255,250,240,.65),inset 0 0 0 2.5px rgba(179,135,44,.4),0 24px 60px rgba(47,29,18,.25)}
+.article p:first-of-type::first-letter{font-family:"Playfair Display","Noto Serif JP",serif;font-size:2.15em;font-weight:700;color:#9c221e;float:left;line-height:.95;padding:5px 10px 0 0}
+footer.site{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23e0bc72' stroke-width='2' stroke-linecap='round' opacity='0.20'%3E%3Cpath d='M52 58a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M40 62h-9M72 62h7'/%3E%3Cpath d='M127 128a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M115 132h-9M147 132h7'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px;position:relative}
+footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:repeating-linear-gradient(90deg,#d9a441 0 12px,transparent 12px 18px,#f7e8c8 18px 30px,transparent 30px 36px);opacity:.85}
 </style>
 <title>Vinhhsk</title>
 <meta name="description" content="Một căn nhà nhỏ giữa nương, bếp lửa đỏ trong gian nhà khói, lũ trẻ bản vây quanh đoàn xe máy — và xa xa, núi non trùng điệp dưới trời xanh. Y Tý đời thường mà thương.">
@@ -223,7 +246,10 @@ header.site::after{content:"";display:block;height:7px;background:repeating-line
     </div>
    </div>
   </nav>
-  <div class="langsw"><a href="y-ty.html" class="on">VI</a><a href="en/y-ty.html">EN</a><a href="ja/y-ty.html">JA</a></div>
+  <div class="has-drop lang-drop">
+    <button class="lang-btn" id="langbtn">🌐 VI ▾</button>
+    <div class="drop lang-panel" id="langdrop"><a href="y-ty.html" class="on">Tiếng Việt</a><a href="en/y-ty.html">English</a><a href="ja/y-ty.html">日本語</a></div>
+   </div>
  </div></div>
 </header>
 <div class="page-head">
@@ -244,8 +270,10 @@ header.site::after{content:"";display:block;height:7px;background:repeating-line
 var b=document.getElementById('burger'),n=document.getElementById('mainnav');
 b.addEventListener('click',function(){n.classList.toggle('open')});
 var db=document.getElementById('dropbtn'),d=document.getElementById('drop');
-db.addEventListener('click',function(e){e.stopPropagation();d.classList.toggle('open')});
-document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open')});
+var lb2=document.getElementById('langbtn'),ld=document.getElementById('langdrop');
+db.addEventListener('click',function(e){e.stopPropagation();ld.classList.remove('open');d.classList.toggle('open')});
+lb2.addEventListener('click',function(e){e.stopPropagation();d.classList.remove('open');ld.classList.toggle('open')});
+document.addEventListener('click',function(e){if(!d.contains(e.target))d.classList.remove('open');if(!ld.contains(e.target))ld.classList.remove('open')});
 var rvEls=document.querySelectorAll('.dest,.post,.sec-head,.about>*,.gallery a,.article p');
 if('IntersectionObserver' in window){
  rvEls.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=((i%3)*0.07)+'s'});
