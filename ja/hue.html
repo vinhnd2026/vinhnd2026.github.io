@@ -200,6 +200,30 @@ h1,h2,h3{font-family:"Playfair Display","Noto Serif JP",Georgia,serif}
 
 /* ===== Burger ve goc phai ngoai cung + bang ngon ngu tren dien thoai ===== */
 @media(max-width:640px){.logo{margin-right:0}.lang-drop{order:2;margin-left:auto;position:relative}.burger{order:3;margin-left:10px}.lang-panel{position:absolute;right:0;top:calc(100% + 10px);width:196px;box-shadow:0 24px 60px rgba(58,35,24,.25)}.lang-panel::before{display:block}}
+
+/* ===== Net Trung Hoa rieng cua theme nay ===== */
+header.site::after{content:"";display:block;height:7px;background:repeating-linear-gradient(90deg,var(--rust) 0 12px,transparent 12px 18px,var(--gold) 18px 30px,transparent 30px 36px);opacity:.9}
+.sec-head .eyebrow::before,.sec-head .eyebrow::after,.about .eyebrow::before{content:"◆";color:var(--rust);font-size:10px;margin:0 9px;vertical-align:2px}
+.snowman svg path[fill="#0e2a4e"]{fill:#a02723}
+.snowman .sm-bub{border:1px solid #d3af62}
+.hero h1{color:#5d1a12}
+
+/* ===== Dam chat co hon ===== */
+::selection{background:#9c221e;color:#ffe9c4}
+.photo{box-shadow:0 0 0 1px #c9a24a,0 0 0 5px #fffaf0,0 0 0 6px rgba(179,135,44,.55),0 18px 40px rgba(47,29,18,.25)}
+.photo::after{content:'遊';position:absolute;right:16px;bottom:52px;width:27px;height:27px;background:#9c221e;color:#fdf3da;font-family:"Playfair Display","Noto Serif JP",serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:4px;box-shadow:inset 0 0 0 1.5px rgba(253,243,218,.75);transform:rotate(2deg);z-index:3}
+.gallery a{box-shadow:0 0 0 1px #d9bc76,0 10px 22px rgba(47,29,18,.16)}
+.hero{position:relative}
+.hero::before{content:'行万里路 · 读万卷书';position:absolute;top:64px;right:14px;writing-mode:vertical-rl;font-family:"Playfair Display","Noto Serif JP",serif;font-size:15px;letter-spacing:7px;color:rgba(156,34,30,.45)}
+@media(max-width:1180px){.hero::before{display:none}}
+.hero h1::after{content:"";display:block;width:170px;height:10px;margin-top:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='10' viewBox='0 0 130 10'%3E%3Cpath d='M2 8 H24 V3 H44 V8 H64 V3 H84 V8 H104 V3 H124 V8' fill='none' stroke='%23b3872c' stroke-width='2.2'/%3E%3C/svg%3E") center/contain no-repeat}
+.btn{box-shadow:inset 0 0 0 1.5px rgba(255,233,196,.55),0 8px 20px rgba(160,39,35,.32)}
+.chip{font-family:"Playfair Display","Noto Serif JP",serif}
+.note{box-shadow:inset 0 0 0 1px rgba(255,250,240,.7),inset 0 0 0 2.5px rgba(179,135,44,.45),0 10px 22px rgba(47,29,18,.13)}
+.drop{box-shadow:inset 0 0 0 1px rgba(255,250,240,.65),inset 0 0 0 2.5px rgba(179,135,44,.4),0 24px 60px rgba(47,29,18,.25)}
+.article p:first-of-type::first-letter{font-family:"Playfair Display","Noto Serif JP",serif;font-size:2.15em;font-weight:700;color:#9c221e;float:left;line-height:.95;padding:5px 10px 0 0}
+footer.site{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='none' stroke='%23e0bc72' stroke-width='2' stroke-linecap='round' opacity='0.20'%3E%3Cpath d='M52 58a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M40 62h-9M72 62h7'/%3E%3Cpath d='M127 128a13 13 0 1 1 13-13 8.5 8.5 0 1 0 8.5 8.5 5 5 0 1 1-5-5'/%3E%3Cpath d='M115 132h-9M147 132h7'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px;position:relative}
+footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:repeating-linear-gradient(90deg,#d9a441 0 12px,transparent 12px 18px,#f7e8c8 18px 30px,transparent 30px 36px);opacity:.85}
 </style>
 <title>Vinhhsk</title>
 <meta name="description" content="威厳ある午門、フォン川の龍船、チャンティエン橋から、国学学校の赤い校舎と古いフエ駅まで——厳かでありながら親しみやすい古都の姿。">
